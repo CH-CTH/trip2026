@@ -6,457 +6,85 @@
 <title>洛杉磯 · 優勝美地 · 舊金山 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #f8f6f1;
-  --surface: #ffffff;
-  --border: #e8e3d8;
-  --text: #1c1916;
-  --muted: #928c82;
-  --accent: #1e4d7b;
-  --accent-bg: #eaf1f8;
-  --gold: #9a6e00;
-  --gold-bg: #fdf7e8;
-  --green: #2d5a2d;
-  --green-bg: #edf5ed;
-  --red: #7a1f1f;
-  --red-bg: #fdf0f0;
-  --pink: #6b2545;
-  --pink-bg: #fdf0f5;
-  --purple: #4a2d7a;
-  --purple-bg: #f2eeff;
-  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --r: 14px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-
-/* ── HERO ── */
-.hero {
-  background: var(--text);
-  color: #fff;
-  padding: 56px 24px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 40px,
-    rgba(255,255,255,0.015) 40px,
-    rgba(255,255,255,0.015) 80px
-  );
-  pointer-events: none;
-}
-.hero-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.45);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(30px, 7vw, 58px);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
-  margin-bottom: 14px;
-}
-.hero h1 em {
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(255,255,255,0.7);
-}
-.hero-sub {
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.08em;
-}
-.hero-pills {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
-}
-.hero-pill {
-  font-size: 11px;
-  padding: 5px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.04em;
-}
-
-/* ── NAV TABS ── */
-.nav-wrap {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  box-shadow: var(--shadow-sm);
-}
-.nav-inner {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 8px;
-}
-.nav-inner::-webkit-scrollbar { display: none; }
-.nav-tab {
-  flex-shrink: 0;
-  padding: 14px 16px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--muted);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-  text-align: center;
-  white-space: nowrap;
-  line-height: 1;
-}
-.nav-tab:hover { color: var(--text); }
-.nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-.nav-tab-sub {
-  display: block;
-  font-size: 9px;
-  font-weight: 300;
-  color: var(--muted);
-  margin-top: 3px;
-  letter-spacing: 0.04em;
-}
-
-/* ── LAYOUT ── */
-.page { display: none; }
-.page.active { display: block; }
-.container { max-width: 960px; margin: 0 auto; padding: 32px 16px 80px; }
-
-/* ── DAY HEADER ── */
-.day-hero {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 28px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-}
-.day-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 64px;
-  font-weight: 600;
-  line-height: 1;
-  flex-shrink: 0;
-  width: 72px;
-  text-align: center;
-}
-.day-info { flex: 1; padding-top: 6px; }
-.day-date { font-size: 20px; font-weight: 500; line-height: 1.3; }
-.day-theme { font-size: 14px; color: #4a4540; margin-top: 6px; line-height: 1.6; }
-.day-core {
-  font-size: 12px;
-  color: var(--accent);
-  margin-top: 10px;
-  font-style: italic;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* ── TIMELINE ── */
-.timeline { position: relative; }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 62px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--border);
-}
-
-.event {
-  display: flex;
-  gap: 0;
-  margin-bottom: 4px;
-  position: relative;
-}
-.event-time {
-  width: 62px;
-  flex-shrink: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: #1c1916;
-  padding-top: 18px;
-  text-align: right;
-  padding-right: 14px;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.2;
-}
-.event-dot-wrap {
-  width: 16px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  position: relative;
-  z-index: 1;
-}
-.event-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 2px solid var(--surface);
-  flex-shrink: 0;
-}
-.event-card {
-  flex: 1;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 16px 18px 14px;
-  margin-left: 12px;
-  margin-bottom: 10px;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.event-card:hover {
-  box-shadow: var(--shadow);
-  transform: translateY(-1px);
-}
-.event-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1c1916;
-  line-height: 1.4;
-}
-.event-detail {
-  font-size: 15px;
-  color: #2a2520;
-  margin-top: 6px;
-  line-height: 1.75;
-}
-.event-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 8px;
-}
-.tag {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 11px;
-  border-radius: 10px;
-  letter-spacing: 0.02em;
-}
-.tag-drive { background: var(--accent-bg); color: var(--accent); }
-.tag-food  { background: var(--gold-bg);   color: var(--gold); }
-.tag-shop  { background: var(--pink-bg);   color: var(--pink); }
-.tag-park  { background: var(--green-bg);  color: var(--green); }
-.tag-hotel { background: var(--purple-bg); color: var(--purple); }
-.tag-warn  { background: var(--red-bg);    color: var(--red); }
-.tag-tip   { background: var(--green-bg);  color: var(--green); }
-.tag-default { background: var(--bg); color: var(--muted); }
-
-/* ── SECTION DIVIDER ── */
-.sec-div {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 36px 0 20px;
-}
-.sec-div-line { flex: 1; height: 1px; background: var(--border); }
-.sec-div-label {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 5px 16px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-
-/* ── HOTELS ── */
-.hotels-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 14px;
-}
-.hotel-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-}
-.hotel-head {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 16px;
-  border-bottom: 1px solid var(--border);
-}
-.hotel-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-.hotel-name { font-size: 14px; font-weight: 500; line-height: 1.4; }
-.hotel-dates { font-size: 11px; color: var(--muted); margin-top: 3px; }
-.hotel-body { padding: 12px 16px; }
-.hotel-addr { font-size: 11px; color: var(--muted); font-style: italic; margin-bottom: 10px; }
-.hotel-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 5px 0;
-  font-size: 12px;
-  border-bottom: 1px solid var(--border);
-  gap: 12px;
-}
-.hotel-row:last-of-type { border-bottom: none; }
-.hotel-row .lbl { color: var(--muted); flex-shrink: 0; }
-.hotel-row .val { font-weight: 500; text-align: right; }
-.hotel-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
-}
-.hotel-conf {
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 8px;
-  font-family: monospace;
-  background: var(--bg);
-  padding: 6px 10px;
-  border-radius: 8px;
-  word-break: break-all;
-  line-height: 1.6;
-}
-
-/* ── CANCEL TABLE ── */
-.cancel-wrap { overflow-x: auto; margin-top: 16px; }
-.cancel-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  min-width: 360px;
-}
-.cancel-table th {
-  text-align: left;
-  padding: 11px 14px;
-  background: var(--text);
-  color: #fff;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-}
-.cancel-table th:first-child { border-radius: 8px 0 0 0; }
-.cancel-table th:last-child { border-radius: 0 8px 0 0; }
-.cancel-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-}
-.cancel-table tr:last-child td { border-bottom: none; }
-.ok { color: var(--green); font-weight: 500; }
-.no { color: var(--red); font-weight: 500; }
-
-/* ── CHECKLIST ── */
-.checklist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 10px;
-  margin-top: 16px;
-}
-.check-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 13px;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: all 0.2s;
-  user-select: none;
-}
-.check-item:hover { box-shadow: var(--shadow-sm); }
-.check-item.done { opacity: 0.5; }
-.check-item.done span { text-decoration: line-through; }
-.check-box {
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  border: 1.5px solid var(--border);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1px;
-  transition: all 0.2s;
-  background: var(--bg);
-}
-.check-item.done .check-box {
-  background: var(--green);
-  border-color: var(--green);
-}
-.check-item.done .check-box::after {
-  content: '';
-  display: block;
-  width: 5px;
-  height: 9px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  transform: rotate(45deg) translate(-1px, -1px);
-}
-.checklist-note {
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 14px;
-  font-style: italic;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-  .hero { padding: 40px 20px 36px; }
-  .day-hero { flex-direction: column; gap: 10px; }
-  .day-num { font-size: 48px; width: auto; }
-  .timeline::before { left: 44px; }
-  .event-time { width: 52px; font-size: 12px; }
-  .hotels-grid { grid-template-columns: 1fr; }
-  .checklist-grid { grid-template-columns: 1fr; }
-}
+:root{--bg:#f8f6f1;--surface:#fff;--border:#e8e3d8;--text:#1c1916;--muted:#6e685f;--accent:#1e4d7b;--accent-bg:#eaf1f8;--gold:#9a6e00;--gold-bg:#fdf7e8;--green:#2d5a2d;--green-bg:#edf5ed;--red:#7a1f1f;--red-bg:#fdf0f0;--pink:#6b2545;--pink-bg:#fdf0f5;--purple:#4a2d7a;--purple-bg:#f2eeff;--route-bg:#f3f1ec;--r:12px;--r-sm:8px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.hero{background:var(--text);color:#fff;padding:48px 24px 40px;text-align:center}
+.hero-eyebrow{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-bottom:14px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,52px);font-weight:600;letter-spacing:.04em;line-height:1.15;margin-bottom:12px}
+.hero h1 em{font-style:italic;font-weight:400;color:rgba(255,255,255,.65)}
+.hero-sub{font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.07em}
+.hero-pills{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:20px}
+.hero-pill{font-size:11px;padding:4px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.7)}
+.nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:960px;margin:0 auto;padding:0 8px}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:13px 15px 11px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-align:center;white-space:nowrap;line-height:1}
+.nav-tab:hover{color:var(--text)}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-tab-sub{display:block;font-size:9px;font-weight:300;color:var(--muted);margin-top:3px}
+.page{display:none}.page.active{display:block}
+.container{max-width:860px;margin:0 auto;padding:28px 16px 80px}
+.day-hero{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.day-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;line-height:1;margin-bottom:6px}
+.day-date{font-size:20px;font-weight:500}
+.day-theme{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.6}
+.day-core{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--accent);margin-top:8px;line-height:1.5}
+.sec-lbl{font-size:10px;font-weight:500;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
+.meals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:28px}
+.meal{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:11px 13px}
+.meal-lbl{font-size:10px;font-weight:500;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.meal-name{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}
+.meal-note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4}
+.meal-empty{font-size:12px;color:#ccc;font-style:italic}
+.spots{display:flex;flex-direction:column;gap:4px}
+.spot{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;transition:box-shadow .2s}
+.spot:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.spot-time{font-size:14px;font-weight:700;color:var(--text)}
+.spot-title{font-size:16px;font-weight:500;color:var(--text);margin-top:3px;line-height:1.4}
+.spot-desc{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.7}
+.spot-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.route-pill{display:flex;align-items:center;gap:0;padding:3px 0 3px 18px}
+.route-arrow{font-size:13px;color:var(--muted);margin-right:10px;flex-shrink:0}
+.route-inner{display:inline-flex;align-items:center;gap:8px;background:var(--route-bg);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.rpath{color:var(--text);font-weight:500}.rdot{color:var(--border)}.rwarn{color:var(--red);font-weight:500}
+.tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px}
+.tag-drive{background:var(--accent-bg);color:var(--accent)}.tag-food{background:var(--gold-bg);color:var(--gold)}
+.tag-shop{background:var(--pink-bg);color:var(--pink)}.tag-park{background:var(--green-bg);color:var(--green)}
+.tag-hotel{background:var(--purple-bg);color:var(--purple)}.tag-warn{background:var(--red-bg);color:var(--red)}
+.tag-tip{background:var(--green-bg);color:var(--green)}.tag-default{background:var(--bg);color:var(--muted)}
+.sec-div{display:flex;align-items:center;gap:14px;margin:32px 0 18px}
+.sec-div-line{flex:1;height:1px;background:var(--border)}
+.sec-div-label{font-size:10px;letter-spacing:.14em;color:var(--muted);padding:5px 16px;border-radius:20px;border:1px solid var(--border);background:var(--surface);white-space:nowrap}
+.hotels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.hotel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.hotel-head{display:flex;gap:12px;align-items:flex-start;padding:15px 16px 12px;border-bottom:1px solid var(--border)}
+.hotel-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;flex-shrink:0}
+.hotel-name{font-size:14px;font-weight:500;line-height:1.4}.hotel-dates{font-size:11px;color:var(--muted);margin-top:3px}
+.hotel-body{padding:12px 16px}.hotel-addr{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:10px}
+.hotel-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:13px;border-bottom:1px solid var(--border);gap:12px}
+.hotel-row:last-of-type{border-bottom:none}.hotel-row .lbl{color:var(--muted);flex-shrink:0}.hotel-row .val{font-weight:500;text-align:right}
+.hotel-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.hotel-conf{font-size:11px;color:var(--muted);margin-top:8px;font-family:monospace;background:var(--bg);padding:6px 10px;border-radius:8px;word-break:break-all;line-height:1.6}
+.cancel-wrap{overflow-x:auto;margin-top:16px}
+.cancel-table{width:100%;border-collapse:collapse;font-size:13px;min-width:360px}
+.cancel-table th{text-align:left;padding:11px 14px;background:var(--text);color:#fff;font-weight:500;font-size:12px}
+.cancel-table th:first-child{border-radius:8px 0 0 0}.cancel-table th:last-child{border-radius:0 8px 0 0}
+.cancel-table td{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface);font-size:13px}
+.cancel-table tr:last-child td{border-bottom:none}
+.ok{color:var(--green);font-weight:500}.no{color:var(--red);font-weight:500}
+.checklist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:14px}
+.check-item{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5;cursor:pointer;transition:all .15s;user-select:none}
+.check-item.done{opacity:.45}.check-item.done span{text-decoration:line-through}
+.check-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;background:var(--bg)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.done .check-box::after{content:'';display:block;width:5px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) translate(-1px,-1px)}
+.checklist-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic}
+@media(max-width:580px){.meals{gap:6px}.meal{padding:9px 10px}.meal-name{font-size:13px}.hotels-grid{grid-template-columns:1fr}.checklist-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <header class="hero">
-  <div class="hero-eyebrow">Family Road Trip · 2026</div>
+  <div class="hero-eyebrow">FAMILY ROAD TRIP · 2026</div>
   <h1>洛杉磯 · <em>優勝美地</em> · 舊金山</h1>
   <div class="hero-sub">6月11日 — 6月21日 &nbsp;·&nbsp; 4人同行 &nbsp;·&nbsp; 自駕遊</div>
   <div class="hero-pills">
@@ -466,326 +94,191 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
     <span class="hero-pill">10天 · 9晚 · 6間飯店</span>
   </div>
 </header>
-
-<nav class="nav-wrap">
-  <div class="nav-inner" id="navInner"></div>
-</nav>
-
+<nav class="nav-wrap"><div class="nav-inner" id="navInner"></div></nav>
 <div id="pages"></div>
-
 <script>
-const CHECKS_KEY = 'lasf2026_checks';
+const CK='lasf2026_checks';
+function rp(path,time,warn){if(!path)return'';let i=`<span class="rpath">${path}</span>`;if(time)i+=`<span class="rdot">·</span><span>${time}</span>`;if(warn)i+=`<span class="rdot">·</span><span class="rwarn">${warn}</span>`;return`<div class="route-pill"><span class="route-arrow">↓</span><div class="route-inner">${i}</div></div>`}
+function th(tags){if(!tags||!tags.length)return'';return'<div class="spot-tags">'+tags.map(t=>`<span class="tag tag-${t.type||'default'}">${t.text}</span>`).join('')+'</div>'}
+function sc(s){return`<div class="spot"><div class="spot-time">${s.time}</div><div class="spot-title">${s.title}</div>${s.desc?`<div class="spot-desc">${s.desc}</div>`:''} ${th(s.tags)}</div>${s.route?rp(s.route.path,s.route.time,s.route.warn):''}`}
+function mc(lbl,m){if(!m)return`<div class="meal"><div class="meal-lbl">${lbl}</div><div class="meal-empty">尚未安排</div></div>`;return`<div class="meal"><div class="meal-lbl">${lbl}</div><div class="meal-name">${m.name}</div>${m.note?`<div class="meal-note">${m.note}</div>`:''}</div>`}
+function mh(b,l,d){return`<div class="meals">${mc('早餐',b)}${mc('午餐',l)}${mc('晚餐',d)}</div>`}
 
-const DAYS = [
-  {
-    id:1, date:"6/11 (四)", title:"西岸初見面",
-    theme:"LAX 落地 → 聖塔莫尼卡 → 蓋蒂中心 → Pasadena",
-    core:"機場出發 → 陽光海灘 → 山頂夕陽 → 入住老城區",
-    color:"#1e4d7b",
-    events:[
-      {time:"07:20",title:"抵達 LAX 機場",detail:"入境審查 + 領行李 + 租車，預估需 1.5–2 小時。建議 09:30 前完成，09:45 最晚上路。",tags:[{type:"warn",text:"入境排隊旺季約 60 分鐘"}]},
-      {time:"10:00",title:"出發 → 聖塔莫尼卡",detail:"I-405 N → I-10 W，約 30–45 分鐘",tags:[{type:"drive",text:"車程 ~35 分"}]},
-      {time:"10:45",title:"聖塔莫尼卡海灘 + 3rd Street Promenade",detail:"停車：Public Parking Structure 4（前 90 分鐘免費）。午餐可選 Blue Plate Oysterette 或 Uovo。女孩必逛 Urban Outfitters、Lululemon。",tags:[{type:"food",text:"午餐"},{type:"shop",text:"逛街"}]},
-      {time:"14:00",title:"出發 → 蓋蒂中心",detail:"I-10 E → I-405 N，約 25–35 分鐘",tags:[{type:"drive",text:"車程 ~30 分"}]},
-      {time:"15:30",title:"蓋蒂中心 (The Getty Center)",detail:"預約 16:00 場次（建議從原 15:30 改為 16:00 更從容）。搭電車上山，先逛 Central Garden，之後至 West Pavilion 露台等夕陽。",tags:[{type:"tip",text:"建議改預約 16:00 場次"}]},
-      {time:"18:45",title:"出發 → Pasadena 飯店",detail:"I-405 N → US-101 S → CA-134 E → I-210 E，約 45–65 分鐘。注意：101 標示 South 但物理方向往東，切勿走 101 N！",tags:[{type:"drive",text:"車程 ~55 分"},{type:"warn",text:"注意 101 方向"}]},
-      {time:"20:00",title:"入住 Courtyard Pasadena · 晚餐",detail:"步行 5 分鐘可至 Sage Vegan Bistro 或 Dog Haus。",tags:[{type:"hotel",text:"Courtyard Pasadena"}]},
-    ]
-  },
-  {
-    id:2, date:"6/12 (五)", title:"優雅洛杉磯",
-    theme:"The Grove → 羅德歐大道 → 格里斐斯天文台 → Marshalls",
-    core:"城市漫遊 → 比佛利氣場 → 格里斐斯夜景 → 回飯店休息 → Marshalls 逛街",
-    color:"#9a6e00",
-    events:[
-      {time:"09:15",title:"出發 Pasadena → 好萊塢",detail:"CA-134 W → US-101 S → Highland Ave，約 45–55 分鐘",tags:[{type:"warn",text:"週五早上往好萊塢方向較塞"}]},
-      {time:"10:00",title:"The Grove + 農夫市場",detail:"停於 The Grove 立體停車場（消費可折抵）。必逛 Brandy Melville、Glossier。午餐推薦 Pampas Grill（巴西烤肉秤重計價，CP 值極高）。",tags:[{type:"shop",text:"女孩必逛"},{type:"food",text:"午餐 Pampas Grill"}]},
-      {time:"14:00",title:"羅德歐大道 (Rodeo Drive)",detail:"走 3rd St 往西。比佛利貴婦感拍照聖地。Santa Monica Blvd 有免費兩小時車位。",tags:[{type:"shop",text:"拍照打卡"}]},
-      {time:"15:15",title:"格里斐斯天文台 (Griffith Observatory)",detail:"走 Sunset Blvd 往東。16:00 前必須抵達！建議停山下轉搭 DASH Observatory 巴士。拍 Hollywood Sign 最佳角度在天文台停車場最左側草地。",tags:[{type:"warn",text:"16:00 前到達！"}]},
-      {time:"19:30",title:"返回 Pasadena 飯店",detail:"I-5 N → CA-134 E，約 20–25 分鐘。",tags:[{type:"drive",text:"車程 ~20 分"}]},
-      {time:"19:45",title:"回飯店 · 放包包 · 稍作休息",detail:"放下隨身背包、換雙舒服的鞋子，休息約 15 分鐘再出發逛街。",tags:[]},
-      {time:"20:15",title:"步行去 Marshalls",detail:"Marshalls Old Pasadena 店，步行約 5–8 分鐘。",tags:[{type:"shop",text:"Marshalls Old Pasadena"},{type:"tip",text:"步行 5–8 分鐘"}]},
-    ]
-  },
-  {
-    id:3, date:"6/13 (六)", title:"移防迪士尼",
-    theme:"Pasadena → Target 採買 → Anaheim Packing District → 迪士尼飯店",
-    core:"避開市區混亂 → 採買 → 迪士尼官方飯店入住",
-    color:"#2d5a2d",
-    events:[
-      {time:"09:30",title:"出發 Pasadena → Anaheim",detail:"I-210 E → CA-57 S → I-5 S，約 40–50 分鐘。HOV 車道（菱形標誌）全家 4 人符合資格可進入。",tags:[{type:"tip",text:"HOV Lane 可省時"},{type:"drive",text:"車程 ~45 分"}]},
-      {time:"10:15",title:"Target Anaheim 採買",detail:"101 S Euclid St。購買：24 瓶裝水、防曬乳、能量棒、止痛藥、OK 繃。",tags:[{type:"shop",text:"戰略採買"}]},
-      {time:"11:30",title:"Anaheim Packing District 午餐",detail:"推薦：The Kroft（起司澆汁薯條）、Georgia's Restaurant（南方炸雞）、Black Sheep Grilled Cheese Bar。必拍飲品：Mini Monster 漸層飲品。",tags:[{type:"food",text:"特色午餐"},{type:"shop",text:"打卡市集"}]},
-      {time:"15:30",title:"入住 Disneyland Hotel",detail:"Check-in，Target 飲料放冰箱。16:30 享用 Monorail Pool 泳池（單軌列車滑水道）。",tags:[{type:"hotel",text:"Disneyland Hotel"}]},
-      {time:"18:30",title:"Downtown Disney 晚餐 + 逛街",detail:"推薦 Black Tap（浮誇奶昔）或 Naples Ristorante（手工披薩）。在 World of Disney 買明天入園耳環或髮箍。",tags:[{type:"food",text:"晚餐"},{type:"shop",text:"Disney 周邊"}]},
-    ]
-  },
-  {
-    id:4, date:"6/14 (日)", title:"迪士尼深玩",
-    theme:"早攻 + 午間撤退策略 + 夜間煙火",
-    core:"執行「午間撤退策略」對抗週末人潮",
-    color:"#4a2d7a",
-    events:[
-      {time:"07:30",title:"開園搶攻",detail:"官方飯店住客優先在 App 預訂 Lightning Lane (LL)。建議第一個衝 Star Wars: Rise of the Resistance。",tags:[{type:"park",text:"Lightning Lane 搶位"}]},
-      {time:"13:00",title:"戰略撤退回飯店休息",detail:"這 3 小時務必回飯店吹冷氣、充電或睡午覺。住官方飯店的最高價值時刻！",tags:[{type:"tip",text:"住官方飯店最大優勢"}]},
-      {time:"19:00",title:"再次入園 · 煙火與燈光秀",detail:"精神飽滿補玩 LL 剩餘設施，欣賞夜間煙火與燈光秀。",tags:[{type:"park",text:"夜間秀"}]},
-    ]
-  },
-  {
-    id:5, date:"6/15 (一)", title:"好萊塢快閃",
-    theme:"Citadel Outlets → 星光大道 → Whole Foods → 晚餐 → T.J.Maxx",
-    core:"南往北移防 → 品牌採買 → 星光大道 → 入住 Burbank → 晚餐 + 逛街",
-    color:"#6b2545",
-    events:[
-      {time:"10:00",title:"離開迪士尼飯店",detail:"I-5 N (Santa Ana Fwy)，約 40–50 分鐘",tags:[{type:"drive",text:"車程 ~45 分"}]},
-      {time:"11:00",title:"Citadel Outlets 購物",detail:"停在靠近 Nike/Adidas 區域停車場。戰利品放後車廂並上鎖。注意：停車場內勿重複開關後車廂整理財物（防歹徒盯梢）。",tags:[{type:"shop",text:"Outlet 採買"},{type:"warn",text:"行李安全注意"}]},
-      {time:"13:15",title:"前往好萊塢 (Hollywood)",detail:"I-5 N → CA-110 N → 101 N，約 45–60 分鐘。注意：110 轉 101 有左側出口，提早變換車道。110 號公路車道窄，需集中精神。",tags:[{type:"warn",text:"110 轉 101 有左側出口"},{type:"drive",text:"車程 ~50 分"}]},
-      {time:"14:30",title:"星光大道快閃",detail:"停車：Ovation Hollywood（有消費可折抵）。參觀：中國劇院手印、杜比劇院、星光步道。打扮成電影人物的合照通常要收費，微笑拒絕即可。",tags:[{type:"warn",text:"打扮人物合照要收費"}]},
-      {time:"16:30",title:"入住 Hotel Burbank",detail:"Check-in，安頓行李，稍作休息。",tags:[{type:"hotel",text:"Hotel Burbank"}]},
-      {time:"17:30",title:"Whole Foods 補給",detail:"Whole Foods Market（300 E Angeleno Ave），步行約 8 分鐘。補充飲料、零食、水果等。",tags:[{type:"shop",text:"Whole Foods"},{type:"tip",text:"步行 8 分鐘"}]},
-      {time:"18:30",title:"晚餐",detail:"Burbank Downtown 餐廳選擇多，步行範圍內有許多好選擇。",tags:[{type:"food",text:"Burbank Downtown 晚餐"}]},
-      {time:"19:45",title:"T.J.Maxx 逛街",detail:"T.J. Maxx，位於 Burbank Town Center 內，步行約 5–8 分鐘。",tags:[{type:"shop",text:"T.J.Maxx · Burbank Town Center"},{type:"tip",text:"步行 5–8 分鐘"}]},
-    ]
-  },
-  {
-    id:6, date:"6/16 (二)", title:"環球影城",
-    theme:"搶先入園 → 瑪莉歐世界 → 哈利波特 → CityWalk",
-    core:"搶先入園 → 瑪莉歐攻略 → 全程無縫接軌",
-    color:"#9a6e00",
-    events:[
-      {time:"07:45",title:"飯店出發 → 環球影城",detail:"車程約 10 分鐘。週二人潮較少，停 General Parking 即可。",tags:[{type:"drive",text:"車程 ~10 分"}]},
-      {time:"08:30",title:"入園！立刻搶 Super Nintendo World",detail:"一過票閘，打開 Universal App 預約 Super Nintendo World 的 Area Access Reservation（已由 Virtual Line 改制，請提前確認最新規則）。",tags:[{type:"park",text:"Mario World 搶位"},{type:"warn",text:"確認最新 App 規則"}]},
-      {time:"09:00",title:"下園區 (Lower Lot) 攻略",detail:"Mario Kart → 變形金剛 → 侏儸紀世界。趁早排完熱門項目。",tags:[{type:"park",text:"Lower Lot"}]},
-      {time:"12:00",title:"午餐",detail:"若訂到 Toadstool Cafe（強烈推薦）。若未訂，回 Upper Lot 用餐。",tags:[{type:"food",text:"Toadstool Cafe"}]},
-      {time:"14:00",title:"Studio Tour 影城之旅",detail:"坐遊園車 45 分鐘看電影特效場景，最佳體力修復時段，可避開午後烈日。",tags:[{type:"park",text:"坐著輕鬆玩"}]},
-      {time:"16:00",title:"哈利波特魔法世界 + 辛普森家庭",detail:"午後陽光變弱，哈利波特城堡拍起來最美。",tags:[{type:"park",text:"哈利波特城堡"}]},
-      {time:"18:30",title:"CityWalk 晚餐",detail:"推薦 Antojitos（墨式料理）或 Voodoo Doughnut。20:30 回飯店。",tags:[{type:"food",text:"CityWalk 晚餐"}]},
-    ]
-  },
-  {
-    id:7, date:"6/17 (三)", title:"邁向森林",
-    theme:"Burbank → Fresno 補給 → Tenaya Lodge → Tunnel View",
-    core:"完成大補給，傍晚享受森林飯店氛圍",
-    color:"#2d5a2d",
-    events:[
-      {time:"07:30",title:"Burbank 出發",detail:"早出發確保 Fresno 逛得從容",tags:[]},
-      {time:"10:30",title:"中途休整：Tejon Ranch Outlets",detail:"最後 Outlet 快速補貨（約 1 小時），或僅上廁所休息。",tags:[{type:"shop",text:"可選"}]},
-      {time:"11:30",title:"Fresno 午餐 + 大補給",detail:"午餐：Raising Cane's 炸雞柳、Dutch Bros 網美咖啡。之後去 Costco 或 Walmart：一大箱礦泉水（山上貴）、水果、零食、隔天午餐材料。",tags:[{type:"food",text:"Raising Cane's"},{type:"shop",text:"Costco/Walmart 補給"},{type:"warn",text:"此處加滿油再進山"}]},
-      {time:"16:00",title:"入住 Tenaya Lodge",detail:"飯店大廳和泳池非常美，適合拍森林系網美照。",tags:[{type:"hotel",text:"Tenaya Lodge"}]},
-      {time:"17:30",title:"傍晚驚喜：Tunnel View",detail:"從 Tenaya 開車 25–30 分鐘。傍晚陽光直射 El Capitan 和 Half Dome，全天最美時刻。先拍到最經典照，明天入園壓力減少 50%！",tags:[{type:"tip",text:"最佳光線時刻"}]},
-      {time:"19:00",title:"回飯店晚餐",detail:"飯店內 Pizzeria 或 Grill 用餐，或吃補給品。",tags:[{type:"food",text:"飯店晚餐"}]},
-    ]
-  },
-  {
-    id:8, date:"6/18 (四)", title:"優勝美地全日",
-    theme:"清晨入谷 → 瀑布草地 → El Capitan → 傍晚往 Oakdale",
-    core:"清晨卡位，玩完後不走回頭路，往舊金山方向移動",
-    color:"#2d7a5a",
-    events:[
-      {time:"05:45",title:"起床！Tenaya Lodge 出發",detail:"06:15 出發，避開 08:00 後南口的大排長龍。",tags:[{type:"warn",text:"越早越好！避開車龍"}]},
-      {time:"07:15",title:"Tunnel View + 停妥車輛",detail:"停在 Yosemite Falls Parking 或 Yosemite Village Parking。車子今天就不動了！順序：Tunnel View → Bridalveil Fall → Yosemite Falls → Sentinel Bridge",tags:[{type:"tip",text:"停好車就不用再移動"}]},
-      {time:"08:00",title:"漫遊優勝美地山谷",detail:"步行至 Lower Yosemite Fall → 搭接駁車去 Cook's Meadow（草地看 Half Dome）→ 體力好可走 Mist Trail 到 Vernal Fall 橋上",tags:[{type:"park",text:"接駁車免費"}]},
-      {time:"12:00",title:"午餐",detail:"自帶午餐（省時間），或 Valley Lodge 簡單吃。下午繼續 El Capitan Meadow → Valley View",tags:[{type:"food",text:"建議自備午餐"}]},
-      {time:"16:30",title:"離開山谷，往 CA-120 西口",detail:"Yosemite Valley → CA-120 West → Oakdale，約 1.5–2 小時。傍晚山路車少反而順暢。",tags:[{type:"warn",text:"不要待太晚"},{type:"drive",text:"車程 ~1.5-2 小時"}]},
-      {time:"18:30",title:"Oakdale 晚餐 + 入住",detail:"推薦 Ferrarese's Deli 或 Ryderz Restaurant，或超市補給。入住 Oakdale Best Western。",tags:[{type:"hotel",text:"Oakdale Best Western"},{type:"food",text:"晚餐"}]},
-    ]
-  },
-  {
-    id:9, date:"6/19 (五)", title:"進駐舊金山",
-    theme:"還車 → 唐人街 → 九曲花街 → 漁人碼頭晚餐",
-    core:"進城還車 → 三大文化區由南往北漫遊",
-    color:"#1e4d7b",
-    events:[
-      {time:"08:30",title:"離開 Oakdale",detail:"CA-120 W → I-580 W → I-80 W（Bay Bridge）。10:30 前抵達通常順暢。",tags:[{type:"drive",text:"車程 ~2 小時"}]},
-      {time:"10:30",title:"抵達 Union Square · 卸行李 → 還車",detail:"先在飯店門口家人卸行李，行李進大廳才算安全。建議直接開去還車，家人在大廳等。還完步行 5–10 分鐘回飯店。",tags:[{type:"hotel",text:"Grand Hyatt SF"},{type:"warn",text:"先還車再 Check-in"}]},
-      {time:"12:00",title:"唐人街午餐 + 探索",detail:"步行穿過龍門。推薦 R&G Lounge 或周邊港點。下午逛 Golden Gate Fortune Cookie Factory，沿 Grant Avenue 拍紅燈籠。",tags:[{type:"food",text:"R&G Lounge"}]},
-      {time:"15:00",title:"北灘 (North Beach) + 九曲花街",detail:"步行至北灘義大利區，Washington Square 草地休息。叫 Uber 到花街頂端 Hyde St，從最高點往下走，俯瞰舊金山海灣。",tags:[]},
-      {time:"17:00",title:"漁人碼頭 (Fisherman's Wharf)",detail:"斜射光最強，Pier 39 看海獅最美。",tags:[{type:"tip",text:"此時光線最美"}]},
-      {time:"18:30",title:"行程慶祝晚餐",detail:"Scoma's（高品質海鮮）或 Tony's Pizza Napoletana（世界級披薩）。20:30 叫 Uber XL 回飯店。",tags:[{type:"food",text:"慶祝晚餐"}]},
-    ]
-  },
-  {
-    id:10, date:"6/20 (六)", title:"最後一天 · 賦歸",
-    theme:"金門大橋 → 渡輪市集 → Union Square 採買 → SFO 機場",
-    core:"金門大橋最佳光線 → 渡輪市集 → 最後採買 → 飛回台灣",
-    color:"#8a3a20",
-    events:[
-      {time:"08:30",title:"金門大橋 (Golden Gate Bridge)",detail:"叫 Uber 前往 Welcome Center。早上霧氣少、橋身清晰、人潮少，最佳拍照時機。",tags:[{type:"tip",text:"09:00 前人少好拍照"}]},
-      {time:"10:00",title:"Crissy Field + 藝術宮 (Palace of Fine Arts)",detail:"沿海岸線往市區方向走。光線柔和，拍建築細節最美。女孩必拍網美點！",tags:[{type:"tip",text:"女孩必拍"}]},
-      {time:"11:30",title:"辦理退房，行李寄放 Bell Desk",detail:"",tags:[]},
-      {time:"12:00",title:"渡輪大廈 (Ferry Building) 週六農夫市集",detail:"必吃：Blue Bottle 咖啡、手工三明治、生蠔。最後伴手禮：橄欖油、巧克力。",tags:[{type:"food",text:"週六市集精華"},{type:"shop",text:"伴手禮"}]},
-      {time:"14:00",title:"Union Square 核心採買",detail:"買完重物直接拿回飯店寄放，不用提著跑。15:00–17:00 是百貨公司最熱鬧時段。",tags:[{type:"shop",text:"最後血拼"}]},
-      {time:"16:30",title:"叮噹車 (Cable Car) 體驗",detail:"Powell St 總站出發，體驗翻越舊金山陡坡的感覺。下載 MuniMobile App 買票。",tags:[{type:"tip",text:"MuniMobile App 買票"}]},
-      {time:"18:00",title:"行程最後晚餐",detail:"The Cheesecake Factory 陽台座位，看著聯合廣場燈光亮起，感性收尾。",tags:[{type:"food",text:"最後晚餐"}]},
-      {time:"20:00",title:"前往 SFO 機場",detail:"領取寄放行李，叫 Uber XL 直達機場，約 30–45 分鐘。6/21 00:50 起飛，建議 21:00 前抵達機場。",tags:[{type:"warn",text:"21:00 前到機場最安全"}]},
-      {time:"00:50",title:"6/21 SFO 起飛 → 回台北桃園",detail:"旅程圓滿結束！",tags:[{type:"tip",text:"平安返家"}]},
-    ]
-  },
+const DAYS=[
+{id:1,date:'6/11 (四)',title:'西岸初見面',color:'#1e4d7b',
+theme:'LAX 落地 → 聖塔莫尼卡 → 蓋蒂中心 → Pasadena',
+core:'機場出發 → 陽光海灘 → 山頂夕陽 → 入住老城區',
+meals:{b:null,l:{name:'Blue Plate Oysterette 或 Uovo',note:'聖塔莫尼卡，海鮮或義大利麵'},d:null},
+spots:[
+{time:'07:20',title:'抵達 LAX 機場',desc:'入境審查 + 領行李 + 租車，預估 1.5–2 小時。建議 09:30 前完成，09:45 最晚上路。',tags:[{type:'warn',text:'入境旺季排隊約 60 分鐘'}],route:{path:'I-405 N → I-10 W',time:'約 30–45 分鐘'}},
+{time:'10:45',title:'聖塔莫尼卡海灘 + 3rd Street Promenade',desc:'停車：Public Parking Structure 4（前 90 分鐘免費）。女孩必逛 Urban Outfitters、Lululemon。',tags:[{type:'shop',text:'逛街'}],route:{path:'I-10 E → I-405 N',time:'約 25–35 分鐘'}},
+{time:'15:30',title:'蓋蒂中心 (The Getty Center)',desc:'建議預約 16:00 場次（比 15:30 更從容）。搭電車上山，先逛 Central Garden，之後在 West Pavilion 露台等夕陽。',tags:[{type:'tip',text:'建議改預約 16:00 場次'}],route:{path:'I-405 N → US-101 S → CA-134 E → I-210 E',time:'約 45–65 分鐘',warn:'注意 101 方向，勿走 101 N'}},
+{time:'20:00',title:'入住 Courtyard Pasadena',desc:'步行 5 分鐘可至 Sage Vegan Bistro 或 Dog Haus。',tags:[{type:'hotel',text:'Courtyard Pasadena'}],route:null},
+]},
+
+{id:2,date:'6/12 (五)',title:'優雅洛杉磯',color:'#9a6e00',
+theme:'The Grove → 羅德歐大道 → 格里斐斯天文台 → Marshalls',
+core:'城市漫遊 → 比佛利氣場 → 格里斐斯夜景 → 回飯店休息 → Marshalls 逛街',
+meals:{b:null,l:{name:'Pampas Grill',note:'The Grove 旁，巴西烤肉秤重計價，CP 值高'},d:null},
+spots:[
+{time:'09:15',title:'出發 Pasadena → 好萊塢',desc:null,tags:[{type:'warn',text:'週五早上往好萊塢方向較塞'}],route:{path:'CA-134 W → US-101 S → Highland Ave',time:'約 45–55 分鐘'}},
+{time:'10:00',title:'The Grove + 農夫市場',desc:'必逛 Brandy Melville、Glossier。停 The Grove 立體停車場，消費可折抵。',tags:[{type:'shop',text:'女孩必逛'}],route:{path:'3rd St 往西',time:'約 10 分鐘'}},
+{time:'14:00',title:'羅德歐大道 (Rodeo Drive)',desc:'比佛利貴婦感拍照聖地。Santa Monica Blvd 有免費兩小時車位。',tags:[{type:'shop',text:'拍照打卡'}],route:{path:'Sunset Blvd 往東',time:'約 20 分鐘',warn:'16:00 前必須到！'}},
+{time:'15:15',title:'格里斐斯天文台 (Griffith Observatory)',desc:'停山下轉搭 DASH Observatory 巴士上山。拍 Hollywood Sign 最佳角度：天文台停車場最左側草地。',tags:[{type:'warn',text:'16:00 前到達！'}],route:{path:'I-5 N → CA-134 E',time:'約 20–25 分鐘'}},
+{time:'19:30',title:'返回 Pasadena 飯店',desc:null,tags:[],route:null},
+{time:'19:45',title:'回飯店 · 放包包 · 休息 15 分',desc:null,tags:[],route:null},
+{time:'20:15',title:'步行去 Marshalls',desc:'Marshalls Old Pasadena 店，步行約 5–8 分鐘。',tags:[{type:'shop',text:'Marshalls Old Pasadena'},{type:'tip',text:'步行 5–8 分鐘'}],route:null},
+]},
+
+{id:3,date:'6/13 (六)',title:'移防迪士尼',color:'#2d5a2d',
+theme:'Pasadena → Target 採買 → Anaheim Packing District → 迪士尼飯店',
+core:'避開市區混亂 → 採買 → 迪士尼官方飯店入住',
+meals:{b:null,l:{name:'Anaheim Packing District',note:'The Kroft 起司薯條 / Georgia\'s 南方炸雞 / Black Sheep 起司三明治'},d:{name:'Downtown Disney',note:'Black Tap 浮誇奶昔 或 Naples Ristorante 手工披薩'}},
+spots:[
+{time:'09:30',title:'出發 Pasadena → Anaheim',desc:'HOV 車道（菱形標誌）全家 4 人符合資格，可大膽進入。',tags:[{type:'tip',text:'HOV Lane 可省時'}],route:{path:'I-210 E → CA-57 S → I-5 S',time:'約 40–50 分鐘'}},
+{time:'10:15',title:'Target Anaheim 採買',desc:'101 S Euclid St。採買：24 瓶裝水、防曬乳、能量棒、止痛藥、OK 繃。',tags:[{type:'shop',text:'戰略採買'}],route:{path:'I-5 S 繼續往南',time:'約 10 分鐘'}},
+{time:'11:30',title:'Anaheim Packing District 逛市集',desc:'兩層樓挑高市集，採光極佳。必拍打卡飲品：Mini Monster 漸層飲品。',tags:[{type:'shop',text:'打卡市集'}],route:{path:'車程約 5–8 分鐘',time:''}},
+{time:'15:30',title:'入住 Disneyland Hotel',desc:'Check-in 後將 Target 飲料放進冰箱。16:30 享用 Monorail Pool 泳池（單軌列車滑水道）。',tags:[{type:'hotel',text:'Disneyland Hotel'}],route:null},
+{time:'18:30',title:'Downtown Disney 晚餐 + 逛街',desc:'在 World of Disney 買明天入園要戴的耳環或髮箍。',tags:[{type:'shop',text:'Disney 周邊'}],route:null},
+]},
+
+{id:4,date:'6/14 (日)',title:'迪士尼深玩',color:'#4a2d7a',
+theme:'早攻 + 午間撤退策略 + 夜間煙火',
+core:'執行「午間撤退策略」對抗週末人潮',
+meals:{b:null,l:null,d:null},
+spots:[
+{time:'07:30',title:'開園搶攻',desc:'官方飯店住客優先在 App 預訂 Lightning Lane (LL)。第一個衝 Star Wars: Rise of the Resistance。',tags:[{type:'park',text:'Lightning Lane 搶位'}],route:null},
+{time:'13:00',title:'戰略撤退回飯店休息',desc:'這 3 小時務必回飯店吹冷氣、充電、睡午覺。住官方飯店最高價值的時刻！',tags:[{type:'tip',text:'住官方飯店最大優勢'}],route:null},
+{time:'19:00',title:'再次入園 · 煙火與燈光秀',desc:'精神飽滿補玩 LL 剩餘設施，欣賞夜間煙火與燈光秀。',tags:[{type:'park',text:'夜間秀'}],route:null},
+]},
+
+{id:5,date:'6/15 (一)',title:'好萊塢快閃',color:'#6b2545',
+theme:'Citadel Outlets → 星光大道 → Whole Foods → 晚餐 → T.J.Maxx',
+core:'南往北移防 → 品牌採買 → 星光大道 → 入住 Burbank → 晚餐 + 逛街',
+meals:{b:null,l:null,d:{name:'Burbank Downtown',note:'步行範圍內餐廳選擇多，尚未指定'}},
+spots:[
+{time:'10:00',title:'離開迪士尼飯店 → Citadel Outlets',desc:null,tags:[],route:{path:'I-5 N',time:'約 40–50 分鐘'}},
+{time:'11:00',title:'Citadel Outlets 購物',desc:'停在靠近 Nike/Adidas 區域。戰利品放後車廂並上鎖，勿在停車場反覆開關後車廂。',tags:[{type:'shop',text:'Outlet 採買'},{type:'warn',text:'行李安全注意'}],route:{path:'I-5 N → CA-110 N → 101 N',time:'約 45–60 分鐘',warn:'110 轉 101 注意左側出口'}},
+{time:'14:30',title:'星光大道快閃 (Hollywood)',desc:'停車：Ovation Hollywood（消費可折抵）。參觀：中國劇院手印、杜比劇院、星光步道。打扮成電影人物的合照通常要收費，微笑拒絕即可。',tags:[{type:'warn',text:'打扮人物合照要收費'}],route:{path:'101 N → CA-134 E',time:'約 15–20 分鐘'}},
+{time:'16:30',title:'入住 Hotel Burbank',desc:'Check-in，安頓行李，稍作休息。',tags:[{type:'hotel',text:'Hotel Burbank'}],route:{path:'步行',time:'約 8 分鐘'}},
+{time:'17:30',title:'Whole Foods 補給',desc:'300 E Angeleno Ave。補充飲料、零食、水果等。',tags:[{type:'shop',text:'Whole Foods'},{type:'tip',text:'步行 8 分鐘'}],route:null},
+{time:'18:30',title:'晚餐',desc:'Burbank Downtown 步行範圍內餐廳。',tags:[{type:'food',text:'晚餐'}],route:{path:'步行',time:'約 5–8 分鐘'}},
+{time:'19:45',title:'T.J.Maxx 逛街',desc:'Burbank Town Center 內，步行約 5–8 分鐘。',tags:[{type:'shop',text:'T.J.Maxx · Burbank Town Center'}],route:null},
+]},
+
+{id:6,date:'6/16 (二)',title:'環球影城',color:'#9a6e00',
+theme:'搶先入園 → 瑪莉歐世界 → 哈利波特 → CityWalk',
+core:'搶先入園 → 瑪莉歐攻略 → 全程無縫接軌',
+meals:{b:null,l:{name:'Toadstool Cafe',note:'Super Nintendo World 內，強烈推薦提前預訂'},d:{name:'CityWalk 晚餐',note:'Antojitos 墨式料理 或 Voodoo Doughnut'}},
+spots:[
+{time:'07:45',title:'飯店出發 → 環球影城',desc:'週二人潮較少，停 General Parking 即可。',tags:[],route:{path:'車程約 10 分鐘',time:''}},
+{time:'08:30',title:'入園！立刻搶 Super Nintendo World',desc:'一過票閘打開 Universal App 預約 Area Access Reservation（已由 Virtual Line 改制，請提前確認最新規則）。',tags:[{type:'park',text:'Mario World 搶位'},{type:'warn',text:'確認最新 App 規則'}],route:null},
+{time:'09:00',title:'下園區 (Lower Lot) 攻略',desc:'Mario Kart → 變形金剛 → 侏儸紀世界。趁早排完熱門項目。',tags:[{type:'park',text:'Lower Lot'}],route:null},
+{time:'14:00',title:'Studio Tour 影城之旅',desc:'坐遊園車 45 分鐘看電影特效場景。最佳體力修復時段，可避開午後烈日。',tags:[{type:'park',text:'坐著輕鬆玩'}],route:null},
+{time:'16:00',title:'哈利波特魔法世界 + 辛普森家庭',desc:'午後陽光變弱，哈利波特城堡拍起來最美。',tags:[{type:'park',text:'哈利波特城堡'}],route:null},
+{time:'18:30',title:'CityWalk 晚餐',desc:'逛 CityWalk，20:30 回飯店。',tags:[{type:'food',text:'晚餐'}],route:null},
+]},
+
+{id:7,date:'6/17 (三)',title:'邁向森林',color:'#2d5a2d',
+theme:'Burbank → Fresno 補給 → Tenaya Lodge → Tunnel View 傍晚',
+core:'完成大補給，傍晚享受森林飯店氛圍',
+meals:{b:null,l:{name:"Raising Cane's",note:'Fresno，神級沾醬炸雞柳。也可喝 Dutch Bros 網美咖啡'},d:{name:'Tenaya Lodge 飯店餐廳',note:'Pizzeria 或 Grill，或用補給品'}},
+spots:[
+{time:'07:30',title:'Burbank 出發',desc:'早出發確保 Fresno 逛得從容。',tags:[],route:{path:'I-5 N → CA-99 N',time:'約 2.5 小時'}},
+{time:'10:30',title:'中途休整：Tejon Ranch Outlets',desc:'可快速補貨（約 1 小時），或僅上廁所休息。',tags:[{type:'shop',text:'可選'}],route:{path:'繼續 CA-99 N',time:'約 1 小時'}},
+{time:'11:30',title:'Fresno 午餐 + 大補給',desc:'Costco 或 Walmart 必買：一大箱礦泉水（山上很貴）、水果、零食、隔天午餐材料。',tags:[{type:'shop',text:'Costco/Walmart'},{type:'warn',text:'此處加滿油再進山'}],route:{path:'CA-41 N 進山',time:'約 1.5 小時'}},
+{time:'16:00',title:'入住 Tenaya Lodge',desc:'飯店大廳和泳池非常美，適合拍森林系網美照。',tags:[{type:'hotel',text:'Tenaya Lodge'}],route:{path:'Highway 41 繼續往北',time:'約 25–30 分鐘'}},
+{time:'17:30',title:'傍晚驚喜：Tunnel View',desc:'傍晚陽光直射 El Capitan 和 Half Dome，全天最美時刻。先拍到最經典照，明天入園壓力減少 50%！',tags:[{type:'tip',text:'全天最佳光線'}],route:{path:'原路返回 Tenaya Lodge',time:'約 25–30 分鐘'}},
+{time:'19:00',title:'回飯店晚餐',desc:null,tags:[{type:'food',text:'飯店晚餐'}],route:null},
+]},
+
+{id:8,date:'6/18 (四)',title:'優勝美地全日',color:'#2d7a5a',
+theme:'清晨入谷 → 瀑布草地 → El Capitan → 傍晚往 Oakdale',
+core:'清晨卡位，玩完後不走回頭路，往舊金山方向移動',
+meals:{b:null,l:{name:'自備午餐',note:'Fresno 買的三明治/能量棒，谷內排隊買飯很久'},d:{name:'Oakdale 晚餐',note:"Ferrarese's Deli 或 Ryderz Restaurant"}},
+spots:[
+{time:'05:45',title:'起床！Tenaya Lodge 出發',desc:'06:15 出發，避開 08:00 後南口大排長龍。',tags:[{type:'warn',text:'越早越好！避開車龍'}],route:{path:'Highway 41 N 進谷',time:'約 30 分鐘'}},
+{time:'07:15',title:'Tunnel View + 停妥車輛',desc:'停 Yosemite Falls Parking 或 Yosemite Village Parking。車子今天就不動了！順序：Tunnel View → Bridalveil Fall → Yosemite Falls → Sentinel Bridge',tags:[{type:'tip',text:'停好車就不用再移動'}],route:null},
+{time:'08:00',title:'漫遊優勝美地山谷',desc:'步行至 Lower Yosemite Fall（輕鬆，可拍瀑布水氣）→ 搭接駁車去 Cook\'s Meadow（草地看 Half Dome）→ 體力好可走 Mist Trail 到 Vernal Fall 橋上。',tags:[{type:'park',text:'接駁車免費'}],route:null},
+{time:'14:00',title:'El Capitan Meadow + Valley View',desc:'下午陽光打在 El Capitan 岩壁上最壯觀。',tags:[{type:'park',text:'拍照聖地'}],route:{path:'CA-120 West → Oakdale',time:'約 1.5–2 小時',warn:'不要待太晚'}},
+{time:'18:30',title:'Oakdale 晚餐 + 入住',desc:'入住 Best Western Plus Rama Inn。',tags:[{type:'hotel',text:'Oakdale Best Western'}],route:null},
+]},
+
+{id:9,date:'6/19 (五)',title:'進駐舊金山',color:'#1e4d7b',
+theme:'還車 → 唐人街 → 九曲花街 → 漁人碼頭晚餐',
+core:'進城還車 → 三大文化區由南往北漫遊',
+meals:{b:null,l:{name:'R&G Lounge',note:'唐人街，道地港式料理'},d:{name:"Scoma's 或 Tony's Pizza",note:"Scoma's 高品質海鮮 / Tony's Pizza Napoletana 世界級披薩"}},
+spots:[
+{time:'08:30',title:'離開 Oakdale → 舊金山',desc:'10:30 前抵達通常順暢。',tags:[],route:{path:'CA-120 W → I-580 W → I-80 W（Bay Bridge）',time:'約 2 小時'}},
+{time:'10:30',title:'抵達 Union Square · 卸行李 → 還車',desc:'先在飯店門口家人卸行李，行李進大廳才算安全。直接開去還車，家人在大廳等，還完步行 5–10 分鐘回飯店。',tags:[{type:'hotel',text:'Grand Hyatt SF'},{type:'warn',text:'先還車再 Check-in'}],route:{path:'步行穿過龍門',time:'約 10 分鐘'}},
+{time:'12:00',title:'唐人街午餐 + 探索',desc:'逛 Golden Gate Fortune Cookie Factory，沿 Grant Avenue 拍紅燈籠。',tags:[{type:'food',text:'R&G Lounge'}],route:{path:'步行至北灘',time:'約 10 分鐘'}},
+{time:'15:00',title:'北灘 (North Beach) + 九曲花街',desc:'Washington Square 草地休息。叫 Uber 到花街頂端 Hyde St，從最高點往下走，俯瞰舊金山海灣。',tags:[],route:{path:'步行 / Uber',time:'約 10 分鐘'}},
+{time:'17:00',title:'漁人碼頭 (Fisherman\'s Wharf)',desc:'斜射光最強，Pier 39 看海獅最美。',tags:[{type:'tip',text:'此時光線最美'}],route:{path:'Uber XL',time:'約 15 分鐘'}},
+{time:'18:30',title:'慶祝晚餐',desc:'20:30 叫 Uber XL 回飯店。',tags:[{type:'food',text:'慶祝晚餐'}],route:null},
+]},
+
+{id:10,date:'6/20 (六)',title:'最後一天 · 賦歸',color:'#8a3a20',
+theme:'金門大橋 → 渡輪市集 → Union Square 採買 → SFO 機場',
+core:'金門大橋最佳光線 → 渡輪市集 → 最後採買 → 飛回台灣',
+meals:{b:null,l:{name:'Ferry Building 農夫市集',note:'Blue Bottle 咖啡、手工三明治、生蠔'},d:{name:'The Cheesecake Factory',note:'陽台座位看聯合廣場燈光，感性收尾'}},
+spots:[
+{time:'08:30',title:'金門大橋 (Golden Gate Bridge)',desc:'叫 Uber 前往 Welcome Center。早上霧氣少、橋身清晰、人潮少。',tags:[{type:'tip',text:'09:00 前人少好拍照'}],route:{path:'沿海岸線步行',time:'約 15 分鐘'}},
+{time:'10:00',title:'Crissy Field + 藝術宮 (Palace of Fine Arts)',desc:'光線柔和，拍建築細節最美。女孩必拍網美點！',tags:[{type:'tip',text:'女孩必拍'}],route:{path:'Uber',time:'約 15 分鐘'}},
+{time:'11:30',title:'辦理退房 · 行李寄放 Bell Desk',desc:null,tags:[],route:{path:'Uber / 步行',time:'約 15 分鐘'}},
+{time:'12:00',title:'渡輪大廈 (Ferry Building) 週六農夫市集',desc:'最後伴手禮：橄欖油、巧克力。',tags:[{type:'shop',text:'伴手禮'}],route:{path:'步行',time:'約 15 分鐘'}},
+{time:'14:00',title:'Union Square 核心採買',desc:'買完重物直接拿回飯店寄放，不用提著跑。15:00–17:00 是百貨公司最熱鬧時段。',tags:[{type:'shop',text:'最後血拼'}],route:{path:'步行至 Powell St',time:'約 5 分鐘'}},
+{time:'16:30',title:'叮噹車 (Cable Car) 體驗',desc:'Powell St 總站出發，翻越舊金山陡坡。下載 MuniMobile App 買票。',tags:[{type:'tip',text:'MuniMobile App 買票'}],route:{path:'步行回飯店領行李',time:'約 10 分鐘'}},
+{time:'18:00',title:'最後晚餐',desc:null,tags:[{type:'food',text:'最後晚餐'}],route:{path:'Uber XL 直達 SFO',time:'約 30–45 分鐘',warn:'21:00 前到機場最安全'}},
+{time:'20:00',title:'前往 SFO 機場',desc:'領取寄放行李，叫 Uber XL。6/21 00:50 起飛。',tags:[{type:'warn',text:'21:00 前到機場最安全'}],route:null},
+]},
 ];
 
-const HOTELS = [
-  {icon:"M",ic:"#0C447C",ib:"#EBF3FB",name:"Courtyard by Marriott Los Angeles Pasadena",dates:"6/11 (四) 16:00 入住 — 6/13 (六) 11:00 退房 · 2晚",addr:"180 N Fair Oaks Ave, Pasadena, CA 91103",rows:[["房型","客房，2 張大床"],["房費","NT$13,206"],["稅金 + 旅遊費","NT$1,985"],["總計","NT$15,192"],["到場付款","US$0.73"],["停車費","US$40 / 晚"],["付款","Visa 5564"]],tags:[{t:"不可退",c:"warn"},{t:"不含早餐",c:"default"},{t:"停車 US$40/晚",c:"food"}],conf:"Confirmation #79027369  |  Vio.com ID: 256-16342787"},
-  {icon:"D",ic:"#534AB7",ib:"#EEEDFE",name:"Disneyland Hotel",dates:"6/13 (六) 入住 — 6/15 (一) 退房 · 2晚",addr:"",rows:[["房型","Deluxe Studio - Preferred View"],["房費","US$1,150"],["現場稅","US$174"],["總計（估）","US$1,324"],["停車費","免費"],["特殊福利","含 Lightning Lane Multi Pass"]],tags:[{t:"不可退",c:"warn"},{t:"不含早餐",c:"default"},{t:"免費停車",c:"park"},{t:"含 Lightning Lane Multi Pass",c:"hotel"}],conf:"Confirmation #18558908"},
-  {icon:"B",ic:"#833C00",ib:"#FAEEDA",name:"Hotel Burbank",dates:"6/15 (一) 入住 — 6/17 (三) 退房 · 2晚",addr:"",rows:[["房型","Mountain View Queen Room"],["總計（含稅）","US$406.70（已於 6/10 扣款）"],["停車費","US$25.49 / 晚"],["信用卡押金","US$100"],["取消期限","6/10 前可退款"]],tags:[{t:"6/10 前可退",c:"tip"},{t:"不含早餐",c:"default"},{t:"停車 US$25.49/晚",c:"food"}],conf:"Agoda #1721418100  |  Hotel Confirmation #590109887"},
-  {icon:"T",ic:"#27500A",ib:"#EAF3DE",name:"Tenaya Lodge at Yosemite",dates:"6/17 (三) 入住 — 6/18 (四) 退房 · 1晚",addr:"1122 Highway 41, Fish Camp, CA 93623",rows:[["房型","Premium 2 Queen Beds"],["房費","NT$9,244"],["稅金及費用","NT$1,334"],["折扣券","-NT$740"],["總計","NT$9,839"],["信用卡押金","US$110"],["停車費","自助免費 / 代客 US$25"],["付款","Visa 5564"],["取消期限","6/15 前可退"]],tags:[{t:"6/15 前可退",c:"tip"},{t:"不含早餐",c:"default"},{t:"自助停車免費",c:"park"}],conf:"Hotels.com #73427173909408  |  Confirmation #592646468"},
-  {icon:"O",ic:"#444441",ib:"#F1EFE8",name:"Best Western Plus Rama Inn · Oakdale",dates:"6/18 (四) 15:00 入住 — 6/19 (五) 11:00 退房 · 1晚",addr:"1450 East F Street, Oakdale, CA 95361",rows:[["房型","Suite - 2 Queen Beds"],["房費（未稅）","US$166.93"],["稅後總計","US$183.95"],["信用卡押金","US$200"],["停車費","免費"],["付款","Visa 5564"],["取消期限","6/16 前可退"],["會員","Blue Member #7884414327"]],tags:[{t:"6/16 前可退",c:"tip"},{t:"含 4 人早餐",c:"park"},{t:"免費停車",c:"park"}],conf:"Confirmation #470808646"},
-  {icon:"H",ic:"#0C447C",ib:"#EBF3FB",name:"Grand Hyatt San Francisco",dates:"6/19 (五) 16:00 入住 — 6/20 (六) 12:00 退房 · 1晚",addr:"345 Stockton St, San Francisco, CA 94108",rows:[["房型","2 Queen Beds"],["房費（未稅）","US$221.00"],["稅後總計","US$307.18"],["付款","JCB 4104"],["取消期限","6/17 前可退"],["會員","Blue Member #596611424Y"]],tags:[{t:"6/17 前可退",c:"tip"},{t:"不含早餐",c:"default"}],conf:"Confirmation #30979250"},
+const HOTELS=[
+{icon:'M',ic:'#0C447C',ib:'#EBF3FB',name:'Courtyard by Marriott Los Angeles Pasadena',dates:'6/11 (四) 16:00 入住 — 6/13 (六) 11:00 退房 · 2晚',addr:'180 N Fair Oaks Ave, Pasadena, CA 91103',rows:[['房型','客房，2 張大床'],['房費','NT$13,206'],['稅金 + 旅遊費','NT$1,985'],['總計','NT$15,192'],['到場付款','US$0.73'],['停車費','US$40 / 晚'],['付款','Visa 5564']],tags:[{t:'不可退',c:'warn'},{t:'不含早餐',c:'default'},{t:'停車 US$40/晚',c:'food'}],conf:'Confirmation #79027369  |  Vio.com ID: 256-16342787'},
+{icon:'D',ic:'#534AB7',ib:'#EEEDFE',name:'Disneyland Hotel',dates:'6/13 (六) 入住 — 6/15 (一) 退房 · 2晚',addr:'',rows:[['房型','Deluxe Studio - Preferred View'],['房費','US$1,150'],['現場稅','US$174'],['總計（估）','US$1,324'],['停車費','免費'],['特殊福利','含 Lightning Lane Multi Pass']],tags:[{t:'不可退',c:'warn'},{t:'不含早餐',c:'default'},{t:'免費停車',c:'park'},{t:'含 Lightning Lane Multi Pass',c:'hotel'}],conf:'Confirmation #18558908'},
+{icon:'B',ic:'#833C00',ib:'#FAEEDA',name:'Hotel Burbank',dates:'6/15 (一) 入住 — 6/17 (三) 退房 · 2晚',addr:'',rows:[['房型','Mountain View Queen Room'],['總計（含稅）','US$406.70（已於 6/10 扣款）'],['停車費','US$25.49 / 晚'],['信用卡押金','US$100'],['取消期限','6/10 前可退款']],tags:[{t:'6/10 前可退',c:'tip'},{t:'不含早餐',c:'default'},{t:'停車 US$25.49/晚',c:'food'}],conf:'Agoda #1721418100  |  Hotel Confirmation #590109887'},
+{icon:'T',ic:'#27500A',ib:'#EAF3DE',name:'Tenaya Lodge at Yosemite',dates:'6/17 (三) 入住 — 6/18 (四) 退房 · 1晚',addr:'1122 Highway 41, Fish Camp, CA 93623',rows:[['房型','Premium 2 Queen Beds'],['房費','NT$9,244'],['稅金及費用','NT$1,334'],['折扣券','-NT$740'],['總計','NT$9,839'],['信用卡押金','US$110'],['停車費','自助免費 / 代客 US$25'],['付款','Visa 5564'],['取消期限','6/15 前可退']],tags:[{t:'6/15 前可退',c:'tip'},{t:'不含早餐',c:'default'},{t:'自助停車免費',c:'park'}],conf:'Hotels.com #73427173909408  |  Confirmation #592646468'},
+{icon:'O',ic:'#444441',ib:'#F1EFE8',name:'Best Western Plus Rama Inn · Oakdale',dates:'6/18 (四) 15:00 入住 — 6/19 (五) 11:00 退房 · 1晚',addr:'1450 East F Street, Oakdale, CA 95361',rows:[['房型','Suite - 2 Queen Beds'],['房費（未稅）','US$166.93'],['稅後總計','US$183.95'],['信用卡押金','US$200'],['停車費','免費'],['付款','Visa 5564'],['取消期限','6/16 前可退'],['會員','Blue Member #7884414327']],tags:[{t:'6/16 前可退',c:'tip'},{t:'含 4 人早餐',c:'park'},{t:'免費停車',c:'park'}],conf:'Confirmation #470808646'},
+{icon:'H',ic:'#0C447C',ib:'#EBF3FB',name:'Grand Hyatt San Francisco',dates:'6/19 (五) 16:00 入住 — 6/20 (六) 12:00 退房 · 1晚',addr:'345 Stockton St, San Francisco, CA 94108',rows:[['房型','2 Queen Beds'],['房費（未稅）','US$221.00'],['稅後總計','US$307.18'],['付款','JCB 4104'],['取消期限','6/17 前可退'],['會員','Blue Member #596611424Y']],tags:[{t:'6/17 前可退',c:'tip'},{t:'不含早餐',c:'default'}],conf:'Confirmation #30979250'},
 ];
 
-const CHECKLIST = [
-  "安裝 App：Disneyland、Universal CA、ParkMobile、Yosemite（離線地圖）、MuniMobile、Uber",
-  "確認 Yosemite 入園預約（夏季需 Day-Use Reservation）",
-  "蓋蒂中心門票預約（建議改 16:00 場次）",
-  "租車確認有後車廂遮物廉 (Cargo Cover)",
-  "全家行動電源在 Day 3 前充飽",
-  "全家辦不同電信商漫遊（山區訊號互補）",
-  "準備洋蔥式穿搭（聖塔莫尼卡 22°C / Anaheim 28°C / Yosemite 清晨 10°C / 金門大橋 13–15°C）",
-  "Google Maps 下載洛杉磯、優勝美地、舊金山離線地圖",
-  "Uber 帳號綁定高回饋信用卡",
-];
+const CHECKLIST=['安裝 App：Disneyland、Universal CA、ParkMobile、Yosemite（離線地圖）、MuniMobile、Uber','確認 Yosemite 入園預約（夏季需 Day-Use Reservation）','蓋蒂中心門票預約（建議改 16:00 場次）','租車確認有後車廂遮物廉 (Cargo Cover)','全家行動電源在 Day 3 前充飽','全家辦不同電信商漫遊（山區訊號互補）','準備洋蔥式穿搭（聖塔莫尼卡 22°C / Anaheim 28°C / Yosemite 清晨 10°C / 金門大橋 13–15°C）','Google Maps 下載洛杉磯、優勝美地、舊金山離線地圖','Uber 帳號綁定高回饋信用卡'];
 
-// ── RENDER ──
-let active = 0;
-
-function tagHtml(tags) {
-  if (!tags || !tags.length) return '';
-  return '<div class="event-tags">' + tags.map(t =>
-    `<span class="tag tag-${t.type||'default'}">${t.text}</span>`
-  ).join('') + '</div>';
+function rdp(day,idx){
+  return`<div class="page${idx===0?' active':''}" data-idx="${idx}"><div class="container"><div class="day-hero"><div class="day-num" style="color:${day.color}">D${day.id}</div><div class="day-date">${day.date} · ${day.title}</div><div class="day-theme">${day.theme}</div><div class="day-core">${day.core}</div></div><div class="sec-lbl">餐飲安排</div>${mh(day.meals.b,day.meals.l,day.meals.d)}<div class="sec-lbl">行程</div><div class="spots">${day.spots.map(s=>sc(s)).join('')}</div></div></div>`;
 }
 
-function renderDayPage(day, idx) {
-  return `
-<div class="page${idx===0?' active':''}" data-idx="${idx}">
-<div class="container">
-  <div class="day-hero">
-    <div class="day-num" style="color:${day.color}">D${day.id}</div>
-    <div class="day-info">
-      <div class="day-date">${day.date} &nbsp;·&nbsp; ${day.title}</div>
-      <div class="day-theme">${day.theme}</div>
-      <div class="day-core">${day.core}</div>
-    </div>
-  </div>
-  <div class="timeline">
-    ${day.events.map(e => `
-    <div class="event">
-      <div class="event-time">${e.time}</div>
-      <div class="event-dot-wrap">
-        <div class="event-dot" style="background:${day.color}"></div>
-      </div>
-      <div class="event-card">
-        <div class="event-title">${e.title}</div>
-        ${e.detail ? `<div class="event-detail">${e.detail}</div>` : ''}
-        ${tagHtml(e.tags)}
-      </div>
-    </div>`).join('')}
-  </div>
-</div>
-</div>`;
+function rhp(){
+  const tm={tip:'tag-tip',warn:'tag-warn',default:'tag-default',park:'tag-park',hotel:'tag-hotel',food:'tag-food'};
+  const cr=[['Hotel Burbank','6/10 前','ok','可退款'],['Tenaya Lodge','6/15 前','ok','可退款'],['Oakdale Best Western','6/16 前','ok','可退款'],['Grand Hyatt SF','6/17 前','ok','可退款'],['Courtyard Pasadena','不可退','no','不可退款'],['Disneyland Hotel','不可退','no','不可退款']];
+  const cards=sl=>sl.map(h=>`<div class="hotel-card"><div class="hotel-head"><div class="hotel-icon" style="background:${h.ib};color:${h.ic}">${h.icon}</div><div><div class="hotel-name">${h.name}</div><div class="hotel-dates">${h.dates}</div></div></div><div class="hotel-body">${h.addr?`<div class="hotel-addr">${h.addr}</div>`:''} ${h.rows.map(([l,v])=>`<div class="hotel-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}${h.tags.length?`<div class="hotel-tags">${h.tags.map(t=>`<span class="tag ${tm[t.c]||'tag-default'}">${t.t}</span>`).join('')}</div>`:''}<div class="hotel-conf">${h.conf}</div></div></div>`).join('');
+  return`<div class="page" data-idx="${DAYS.length}"><div class="container"><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">洛杉磯</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(0,3))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">優勝美地</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(3,5))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">舊金山</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(5))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">取消期限一覽</div><div class="sec-div-line"></div></div><div class="cancel-wrap"><table class="cancel-table"><thead><tr><th>飯店</th><th>取消期限</th><th>狀態</th></tr></thead><tbody>${cr.map(([n,d,c,s])=>`<tr><td>${n}</td><td class="${c}">${d}</td><td class="${c}">${s}</td></tr>`).join('')}</tbody></table></div></div></div>`;
 }
 
-function renderHotelPage() {
-  const tmap = {tip:'tag-tip',warn:'tag-warn',default:'tag-default',park:'tag-park',hotel:'tag-hotel',food:'tag-food'};
-  const cancelRows = [
-    ['Hotel Burbank','6/10 前','ok','可退款'],
-    ['Tenaya Lodge','6/15 前','ok','可退款'],
-    ['Oakdale Best Western','6/16 前','ok','可退款'],
-    ['Grand Hyatt SF','6/17 前','ok','可退款'],
-    ['Courtyard Pasadena','不可退','no','不可退款'],
-    ['Disneyland Hotel','不可退','no','不可退款'],
-  ];
-  const cards = (slice) => slice.map(h => `
-    <div class="hotel-card">
-      <div class="hotel-head">
-        <div class="hotel-icon" style="background:${h.ib};color:${h.ic}">${h.icon}</div>
-        <div>
-          <div class="hotel-name">${h.name}</div>
-          <div class="hotel-dates">${h.dates}</div>
-        </div>
-      </div>
-      <div class="hotel-body">
-        ${h.addr ? `<div class="hotel-addr">${h.addr}</div>` : ''}
-        ${h.rows.map(([l,v]) => `<div class="hotel-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}
-        ${h.tags.length ? `<div class="hotel-tags">${h.tags.map(t=>`<span class="tag ${tmap[t.c]||'tag-default'}">${t.t}</span>`).join('')}</div>` : ''}
-        <div class="hotel-conf">${h.conf}</div>
-      </div>
-    </div>`).join('');
-
-  return `
-<div class="page" data-idx="${DAYS.length}">
-<div class="container">
-  <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">洛杉磯</div><div class="sec-div-line"></div></div>
-  <div class="hotels-grid">${cards(HOTELS.slice(0,3))}</div>
-  <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">優勝美地</div><div class="sec-div-line"></div></div>
-  <div class="hotels-grid">${cards(HOTELS.slice(3,5))}</div>
-  <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">舊金山</div><div class="sec-div-line"></div></div>
-  <div class="hotels-grid">${cards(HOTELS.slice(5))}</div>
-  <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">取消期限一覽</div><div class="sec-div-line"></div></div>
-  <div class="cancel-wrap">
-  <table class="cancel-table">
-    <thead><tr><th>飯店</th><th>取消期限</th><th>狀態</th></tr></thead>
-    <tbody>
-      ${cancelRows.map(([n,d,c,s]) => `<tr><td>${n}</td><td class="${c}">${d}</td><td class="${c}">${s}</td></tr>`).join('')}
-    </tbody>
-  </table>
-  </div>
-</div>
-</div>`;
+function rcp(){
+  const ch=JSON.parse(localStorage.getItem(CK)||'{}');
+  return`<div class="page" data-idx="${DAYS.length+1}"><div class="container"><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">出發前必備清單</div><div class="sec-div-line"></div></div><div class="checklist-grid" id="clg">${CHECKLIST.map((item,i)=>`<div class="check-item${ch[i]?' done':''}" onclick="tc(${i})"><div class="check-box"></div><span>${item}</span></div>`).join('')}</div><div class="checklist-note">勾選後自動儲存在此瀏覽器中</div></div></div>`;
 }
 
-function renderCheckPage() {
-  const checks = JSON.parse(localStorage.getItem(CHECKS_KEY)||'{}');
-  const items = CHECKLIST.map((item,i) => `
-    <div class="check-item${checks[i]?' done':''}" onclick="toggleCheck(${i})">
-      <div class="check-box"></div>
-      <span>${item}</span>
-    </div>`).join('');
-  return `
-<div class="page" data-idx="${DAYS.length+1}">
-<div class="container">
-  <div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">出發前必備清單</div><div class="sec-div-line"></div></div>
-  <div class="checklist-grid" id="checklistGrid">${items}</div>
-  <div class="checklist-note">勾選後自動儲存在此瀏覽器中</div>
-</div>
-</div>`;
-}
+document.getElementById('navInner').innerHTML=[
+  ...DAYS.map((d,i)=>`<div class="nav-tab${i===0?' active':''}" data-idx="${i}" onclick="st(${i})">Day ${d.id}<span class="nav-tab-sub">${d.date.split(' ')[0]}</span></div>`),
+  `<div class="nav-tab" data-idx="${DAYS.length}" onclick="st(${DAYS.length})">🏨 住宿<span class="nav-tab-sub">訂房資訊</span></div>`,
+  `<div class="nav-tab" data-idx="${DAYS.length+1}" onclick="st(${DAYS.length+1})">✅ 清單<span class="nav-tab-sub">出發前</span></div>`,
+].join('');
 
-function buildNav() {
-  const nav = document.getElementById('navInner');
-  const tabs = [
-    ...DAYS.map((d,i) => `<div class="nav-tab${i===0?' active':''}" data-idx="${i}" onclick="switchTab(${i})">Day ${d.id}<span class="nav-tab-sub">${d.date.split(' ')[0]}</span></div>`),
-    `<div class="nav-tab" data-idx="${DAYS.length}" onclick="switchTab(${DAYS.length})">🏨 住宿<span class="nav-tab-sub">訂房資訊</span></div>`,
-    `<div class="nav-tab" data-idx="${DAYS.length+1}" onclick="switchTab(${DAYS.length+1})">✅ 清單<span class="nav-tab-sub">出發前</span></div>`,
-  ];
-  nav.innerHTML = tabs.join('');
-}
+document.getElementById('pages').innerHTML=DAYS.map((d,i)=>rdp(d,i)).join('')+rhp()+rcp();
 
-function buildPages() {
-  const pages = document.getElementById('pages');
-  pages.innerHTML = DAYS.map((d,i) => renderDayPage(d,i)).join('') + renderHotelPage() + renderCheckPage();
-}
-
-function switchTab(idx) {
-  active = idx;
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+function st(idx){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelector(`.page[data-idx="${idx}"]`).classList.add('active');
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   document.querySelector(`.nav-tab[data-idx="${idx}"]`).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function toggleCheck(i) {
-  const checks = JSON.parse(localStorage.getItem(CHECKS_KEY)||'{}');
-  checks[i] = !checks[i];
-  localStorage.setItem(CHECKS_KEY, JSON.stringify(checks));
-  const grid = document.getElementById('checklistGrid');
-  if (!grid) return;
-  const items = grid.querySelectorAll('.check-item');
-  if (items[i]) items[i].classList.toggle('done', !!checks[i]);
+function tc(i){
+  const ch=JSON.parse(localStorage.getItem(CK)||'{}');ch[i]=!ch[i];localStorage.setItem(CK,JSON.stringify(ch));
+  const el=document.querySelector(`#clg .check-item:nth-child(${i+1})`);if(el)el.classList.toggle('done',!!ch[i]);
 }
-
-buildNav();
-buildPages();
 </script>
 </body>
 </html>
