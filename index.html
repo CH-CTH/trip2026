@@ -26,28 +26,28 @@
 .day-hero{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
 .day-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;line-height:1;margin-bottom:6px}
 .day-date{font-size:20px;font-weight:500}
-.day-theme{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.6}
+.day-theme{font-size:14px;color:#3a3530;margin-top:5px;line-height:1.6}
 .day-core{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--accent);margin-top:8px;line-height:1.5}
 .sec-lbl{font-size:10px;font-weight:500;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:10px}
 .sec-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
 .meals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:28px}
 .meal{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:11px 13px}
 .meal-lbl{font-size:10px;font-weight:500;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
-.meal-name{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}
-.meal-note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4}
+.meal-name{font-size:15px;font-weight:500;color:#1c1916;line-height:1.4}
+.meal-note{font-size:13px;color:#3a3530;margin-top:3px;line-height:1.4}
 .meal-empty{font-size:12px;color:#ccc;font-style:italic}
 .spots{display:flex;flex-direction:column;gap:4px}
 .spot{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;transition:box-shadow .2s}
 .spot:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.spot-time{font-size:14px;font-weight:700;color:var(--text)}
-.spot-title{font-size:16px;font-weight:500;color:var(--text);margin-top:3px;line-height:1.4}
-.spot-desc{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.7}
+.spot-time{font-size:15px;font-weight:700;color:#1c1916}
+.spot-title{font-size:18px;font-weight:500;color:#1c1916;margin-top:3px;line-height:1.4}
+.spot-desc{font-size:15px;color:#2a2520;margin-top:6px;line-height:1.75}
 .spot-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .route-pill{display:flex;align-items:center;gap:0;padding:3px 0 3px 18px}
 .route-arrow{font-size:13px;color:var(--muted);margin-right:10px;flex-shrink:0}
-.route-inner{display:inline-flex;align-items:center;gap:8px;background:var(--route-bg);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.route-inner{display:inline-flex;align-items:center;gap:8px;background:var(--route-bg);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:14px;color:#3a3530;flex-wrap:wrap}
 .rpath{color:var(--text);font-weight:500}.rdot{color:var(--border)}.rwarn{color:var(--red);font-weight:500}
-.tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:10px}
+.tag{font-size:12px;font-weight:500;padding:4px 11px;border-radius:10px}
 .tag-drive{background:var(--accent-bg);color:var(--accent)}.tag-food{background:var(--gold-bg);color:var(--gold)}
 .tag-shop{background:var(--pink-bg);color:var(--pink)}.tag-park{background:var(--green-bg);color:var(--green)}
 .tag-hotel{background:var(--purple-bg);color:var(--purple)}.tag-warn{background:var(--red-bg);color:var(--red)}
@@ -61,7 +61,7 @@
 .hotel-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;flex-shrink:0}
 .hotel-name{font-size:14px;font-weight:500;line-height:1.4}.hotel-dates{font-size:11px;color:var(--muted);margin-top:3px}
 .hotel-body{padding:12px 16px}.hotel-addr{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:10px}
-.hotel-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:13px;border-bottom:1px solid var(--border);gap:12px}
+.hotel-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:14px;border-bottom:1px solid var(--border);gap:12px}
 .hotel-row:last-of-type{border-bottom:none}.hotel-row .lbl{color:var(--muted);flex-shrink:0}.hotel-row .val{font-weight:500;text-align:right}
 .hotel-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
 .hotel-conf{font-size:11px;color:var(--muted);margin-top:8px;font-family:monospace;background:var(--bg);padding:6px 10px;border-radius:8px;word-break:break-all;line-height:1.6}
@@ -69,16 +69,22 @@
 .cancel-table{width:100%;border-collapse:collapse;font-size:13px;min-width:360px}
 .cancel-table th{text-align:left;padding:11px 14px;background:var(--text);color:#fff;font-weight:500;font-size:12px}
 .cancel-table th:first-child{border-radius:8px 0 0 0}.cancel-table th:last-child{border-radius:0 8px 0 0}
-.cancel-table td{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface);font-size:13px}
+.cancel-table td{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface);font-size:14px}
 .cancel-table tr:last-child td{border-bottom:none}
 .ok{color:var(--green);font-weight:500}.no{color:var(--red);font-weight:500}
 .checklist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:14px}
-.check-item{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5;cursor:pointer;transition:all .15s;user-select:none}
+.check-item{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;font-size:14px;line-height:1.5;cursor:pointer;transition:all .15s;user-select:none}
 .check-item.done{opacity:.45}.check-item.done span{text-decoration:line-through}
 .check-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;background:var(--bg)}
 .check-item.done .check-box{background:var(--green);border-color:var(--green)}
 .check-item.done .check-box::after{content:'';display:block;width:5px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) translate(-1px,-1px)}
 .checklist-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic}
+.rd-toggle{display:flex;align-items:center;gap:8px;padding:7px 14px;background:var(--route-bg);border:1px solid var(--border);border-radius:20px;font-size:13px;color:var(--muted);cursor:pointer;width:fit-content;margin-top:4px;user-select:none;transition:all .2s}
+.rd-toggle:hover{background:#e8e4dc;color:var(--text)}
+.rd-toggle .rd-arrow{font-size:10px;transition:transform .25s}
+.rd-toggle.open .rd-arrow{transform:rotate(180deg)}
+.rd-body{display:none;margin-top:6px}
+.rd-body.open{display:block}
 @media(max-width:580px){.meals{gap:6px}.meal{padding:9px 10px}.meal-name{font-size:13px}.hotels-grid{grid-template-columns:1fr}.checklist-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -100,19 +106,203 @@
 const CK='lasf2026_checks';
 function rp(path,time,warn){if(!path)return'';let i=`<span class="rpath">${path}</span>`;if(time)i+=`<span class="rdot">·</span><span>${time}</span>`;if(warn)i+=`<span class="rdot">·</span><span class="rwarn">${warn}</span>`;return`<div class="route-pill"><span class="route-arrow">↓</span><div class="route-inner">${i}</div></div>`}
 function th(tags){if(!tags||!tags.length)return'';return'<div class="spot-tags">'+tags.map(t=>`<span class="tag tag-${t.type||'default'}">${t.text}</span>`).join('')+'</div>'}
-function sc(s){return`<div class="spot"><div class="spot-time">${s.time}</div><div class="spot-title">${s.title}</div>${s.desc?`<div class="spot-desc">${s.desc}</div>`:''} ${th(s.tags)}</div>${s.route?rp(s.route.path,s.route.time,s.route.warn):''}`}
-function mc(lbl,m){if(!m)return`<div class="meal"><div class="meal-lbl">${lbl}</div><div class="meal-empty">尚未安排</div></div>`;return`<div class="meal"><div class="meal-lbl">${lbl}</div><div class="meal-name">${m.name}</div>${m.note?`<div class="meal-note">${m.note}</div>`:''}</div>`}
+let rdIdx=0;
+function sc(s){
+  const idx=rdIdx++;
+  const rentalToggle=s.rental?`<div class="rd-toggle" onclick="toggleRd('rental${idx}',this)"><span class="rd-arrow">▼</span> 租車中心 + 路線說明</div><div class="rd-body" id="rental${idx}">${s.rental}</div>`:'';
+  const rd=s.routeDetail?`<div class="rd-toggle" onclick="toggleRd('route${idx}',this)"><span class="rd-arrow">▼</span> 詳細路線說明</div><div class="rd-body" id="route${idx}">${s.routeDetail}</div>`:'';
+  return`<div class="spot"><div class="spot-time">${s.time}</div><div class="spot-title">${s.title}</div>${s.desc?`<div class="spot-desc">${s.desc}</div>`:''} ${th(s.tags)}${s.extra||''}</div>${rentalToggle}${s.route?rp(s.route.path,s.route.time,s.route.warn):''}${rd}`;
+}
+function toggleRd(id,btn){
+  const body=document.getElementById(id);
+  if(!body)return;
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  btn.classList.toggle('open',!isOpen);
+}
+
+function mc(lbl,m){if(!m)return`<div class="meal"><div class="meal-lbl">${lbl}</div><div class="meal-empty">尚未安排</div></div>`;return`<div class="meal"><div class="meal-lbl">${lbl}</div><div class="meal-name">${m.name}</div>${m.note?`<div class="meal-note">${m.note}</div>`:''} ${m.extra||''}</div>`}
 function mh(b,l,d){return`<div class="meals">${mc('早餐',b)}${mc('午餐',l)}${mc('晚餐',d)}</div>`}
 
 const DAYS=[
 {id:1,date:'6/11 (四)',title:'西岸初見面',color:'#1e4d7b',
 theme:'LAX 落地 → 聖塔莫尼卡 → 蓋蒂中心 → Pasadena',
 core:'機場出發 → 陽光海灘 → 山頂夕陽 → 入住老城區',
-meals:{b:null,l:{name:'Blue Plate Oysterette 或 Uovo',note:'聖塔莫尼卡，海鮮或義大利麵'},d:null},
+meals:{b:null,l:{name:'Santa Monica 午餐選擇',note:'',extra:`<div style="display:flex;flex-direction:column;gap:6px;margin-top:6px;">
+  <div style="background:#f8f6f1;border-radius:8px;padding:9px 12px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:14px;color:#1c1916;">🍝 Uovo</div>
+    <div style="font-size:13px;color:#2a2520;">義大利麵，簡單好吃，女孩會喜歡</div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:8px;padding:9px 12px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:14px;color:#1c1916;">🥗 True Food Kitchen</div>
+    <div style="font-size:13px;color:#2a2520;">健康時髦路線，裝潢明亮，酪梨吐司・沙拉・果昔，清爽不油，適合剛下飛機。Santa Monica Place 旁。</div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:8px;padding:9px 12px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:14px;color:#1c1916;">🥂 The Cheesecake Factory</div>
+    <div style="font-size:13px;color:#2a2520;">第一次來美國的絕對安全牌，菜單超厚什麼都有，份量極大。百貨公司頂樓。</div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:8px;padding:9px 12px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:14px;color:#1c1916;">🦞 Blue Plate Oysterette</div>
+    <div style="font-size:13px;color:#2a2520;">龍蝦堡（Lobster Roll）或海鮮，一邊看海一邊用餐，氛圍極佳。靠近海邊。</div>
+  </div>
+</div>`},d:null},
 spots:[
-{time:'07:20',title:'抵達 LAX 機場',desc:'入境審查 + 領行李 + 租車，預估 1.5–2 小時。建議 09:30 前完成，09:45 最晚上路。',tags:[{type:'warn',text:'入境旺季排隊約 60 分鐘'}],route:{path:'I-405 N → I-10 W',time:'約 30–45 分鐘'}},
-{time:'10:45',title:'聖塔莫尼卡海灘 + 3rd Street Promenade',desc:'停車：Public Parking Structure 4（前 90 分鐘免費）。女孩必逛 Urban Outfitters、Lululemon。',tags:[{type:'shop',text:'逛街'}],route:{path:'I-10 E → I-405 N',time:'約 25–35 分鐘'}},
-{time:'15:30',title:'蓋蒂中心 (The Getty Center)',desc:'建議預約 16:00 場次（比 15:30 更從容）。搭電車上山，先逛 Central Garden，之後在 West Pavilion 露台等夕陽。',tags:[{type:'tip',text:'建議改預約 16:00 場次'}],route:{path:'I-405 N → US-101 S → CA-134 E → I-210 E',time:'約 45–65 分鐘',warn:'注意 101 方向，勿走 101 N'}},
+{time:'07:20',title:'抵達 LAX 機場',desc:'入境審查 + 領行李 + 租車，預估 1.5–2 小時。建議 09:30 前完成，09:45 最晚上路。',tags:[{type:'warn',text:'入境旺季排隊約 60 分鐘'}],route:{path:'I-405 N → I-10 W',time:'約 30–45 分鐘'},rental:`
+<div style="margin-top:10px;padding:12px 14px;background:#f3f1ec;border-radius:10px;font-size:14px;color:#2a2520;line-height:1.8;">
+  <div style="font-weight:600;font-size:15px;margin-bottom:8px;color:#1c1916;">🚌 LAX 租車中心步驟</div>
+  <div style="margin-bottom:6px;"><span style="font-weight:600;">①</span> 出航廈後（抵達層）&nbsp;→&nbsp; 抬頭找<span style="font-weight:600;color:#5b3fa0;">紫色</span>牌子，字樣：<span style="font-weight:600;">Rental Car Shuttles</span></div>
+  <div style="margin-bottom:6px;"><span style="font-weight:600;">②</span> 過小馬路走到中央島（Median）&nbsp;→&nbsp; 找地面或柱子上的<span style="font-weight:600;color:#5b3fa0;">紫色</span>標示</div>
+  <div style="margin-bottom:6px;"><span style="font-weight:600;">③</span> 上車&nbsp;→&nbsp; 看到寫 <span style="font-weight:600;">Rental Car Center</span> 的紫色巴士直接上，不分品牌（Hertz、Avis 等全部同一棟樓）</div>
+  <div><span style="font-weight:600;">④</span> 抵達後搭電梯至櫃檯層，12 家租車公司排排站&nbsp;·&nbsp; <span style="font-weight:600;">車程 10–20 分鐘</span></div>
+</div>
+<div style="margin-top:8px;padding:14px 16px;background:#eaf1f8;border-radius:10px;font-size:14px;color:#2a2520;line-height:1.85;border-left:3px solid #1e4d7b;">
+  <div style="font-weight:600;font-size:15px;margin-bottom:10px;color:#1e4d7b;">🗺️ 租車中心 → Santa Monica 路線（30–45 分鐘）</div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">① 駛出租車中心（2–5 分鐘）</div>
+    <div>導航設定：<span style="font-weight:600;">Public Parking Structure 4, Santa Monica</span>（入口在 2nd St）</div>
+    <div>出大樓後順指標走地面道路，盯緊綠色大指標「<span style="font-weight:600;">Freeways</span>」或「<span style="font-weight:600;">I-405 North</span>」即可。</div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">② 上 I-405 North（10–12 英里，約 15–20 分鐘）</div>
+    <div>從右側匯入後，待在右邊數來第 2 或第 3 條車道。</div>
+    <div style="margin-top:4px;color:#7a1f1f;font-weight:500;">✗ 最右邊車道常變 Exit Only &nbsp;·&nbsp; ✗ 最左邊是 Carpool Lane，勿進入</div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">③ 切換 I-10 West ← 全程最需要專心的地方</div>
+    <div>開了約 10 英里後，導航和路標會出現「<span style="font-weight:600;">I-10 West / Santa Monica</span>」。</div>
+    <div>提前 1 英里（1.6 公里）開始向右移道，進入長長的右彎高架引道，順著大彎道即可匯入 10 號公路。</div>
+    <div style="margin-top:4px;color:#7a1f1f;font-weight:500;">✗ 不要靠到最右邊邊角（那是 I-10 East 出口）</div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">④ I-10 West 直奔海邊（5–8 分鐘）</div>
+    <div>10 號公路往西，終點就是太平洋，<span style="font-weight:600;">不可能開過頭</span>。</div>
+    <div>看到海或市區建築時，導航會指示在 <span style="font-weight:600;">4th St / 5th St 出口</span>下高速。</div>
+  </div>
+
+  <div>
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">⑤ 抵達與停車</div>
+    <div>下交流道後跟導航走即可。</div>
+    <div style="margin-top:4px;color:#7a1f1f;font-weight:500;">⚠️ Public Parking Structure 4 入口在 <span style="font-weight:600;">2nd Street</span>，不是 4th Street！開慢一點找。</div>
+    <div style="margin-top:4px;">取票進場，前 <span style="font-weight:600;">90 分鐘免費</span>，走出來就是 3rd Street Promenade 逛街區。</div>
+  </div>
+</div>`},
+{time:'10:45',title:'Santa Monica',desc:null,tags:[{type:'shop',text:'逛街'},{type:'tip',text:'女孩必拍'}],
+extra:`<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">
+  <div style="background:#f8f6f1;border-radius:10px;padding:12px 14px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:15px;color:#1c1916;margin-bottom:4px;">① Santa Monica Pier</div>
+    <div style="font-size:14px;color:#2a2520;line-height:1.7;">太平洋海景・摩天輪・Route 66 終點牌</div>
+    <div style="font-size:13px;color:#1e4d7b;margin-top:4px;font-weight:500;">📸 摩天輪＋海景 Route 66 經典打卡照 &nbsp;·&nbsp; 停留 45–60 分鐘</div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:10px;padding:12px 14px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:15px;color:#1c1916;margin-bottom:4px;">② 海灘走走</div>
+    <div style="font-size:14px;color:#2a2520;line-height:1.7;">沙灘乾淨・救生塔很好拍・椰子樹超有加州感</div>
+    <div style="font-size:13px;color:#3a3530;margin-top:4px;">不用走太遠，踩踩沙就好。</div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:10px;padding:12px 14px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:15px;color:#1c1916;margin-bottom:4px;">③ 3rd Street Promenade</div>
+    <div style="font-size:14px;color:#2a2520;line-height:1.7;">Urban Outfitters・Lululemon・Sephora・Apple Store</div>
+    <div style="font-size:13px;color:#3a3530;margin-top:4px;">第一天逛這裡氣氛超好，不會有市區壓力。</div>
+    <div style="font-size:13px;color:#6b2545;margin-top:3px;font-weight:500;">停車：Public Parking Structure 4，前 90 分鐘免費，入口在 2nd St</div>
+  </div>
+</div>`,
+route:{path:'I-10 E → I-405 N',time:'約 25–35 分鐘'},routeDetail:`<div style="margin-top:8px;padding:14px 16px;background:#eaf1f8;border-radius:10px;font-size:14px;color:#2a2520;line-height:1.85;border-left:3px solid #1e4d7b;">
+  <div style="font-weight:600;font-size:15px;margin-bottom:10px;color:#1e4d7b;">🗺️ Santa Monica → 蓋蒂中心（20–30 分鐘）</div>
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">① 離開停車場，上 I-10 East</div>
+    <div>導航設定：<span style="font-weight:600;">The Getty Center</span></div>
+    <div>從 Parking Structure 4 的 <span style="font-weight:600;">4th Street 出口</span>駛出，沿 4th St 往南開（遠離海邊方向），很快就會看到 <span style="font-weight:600;">I-10 East（往 Los Angeles）</span>入口。進去後穩定車速。</div>
+  </div>
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">② I-10 East → I-405 North ← 最重要切換</div>
+    <div>這段很短，約 3.5 英里（5–7 分鐘），要提早準備。</div>
+    <div style="margin-top:4px;">導航剩 1 英里時，開始切換到偏右側車道，跟著寫 <span style="font-weight:600;">I-405 North / Sacramento</span> 的綠色標示，順著向右高架彎道匯入即可。</div>
+    <div style="margin-top:4px;color:#7a1f1f;font-weight:500;">✗ 最右邊那條有時是 I-405 South，注意辨別</div>
+  </div>
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">③ I-405 North → Getty Center Dr 出口（5–8 分鐘）</div>
+    <div>匯入 405 後穩定行駛，看到 <span style="font-weight:600;">"Getty Center Dr"</span> 出口牌即切換到最右側下匝道。</div>
+    <div style="margin-top:4px;">下匝道後會看到紅綠燈，路口標示非常大，直接跟著 <span style="font-weight:600;">"Getty Center"</span> 專屬指標進入，像進入私人莊園入口一樣。</div>
+  </div>
+  <div>
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">④ 停車與搭電車</div>
+    <div>進入後先過崗哨（工作人員確認預約），停地下停車場（<span style="font-weight:600;">地下 4–5 樓位子較多</span>）。</div>
+    <div style="margin-top:4px;">停好後搭免費 <span style="font-weight:600;">Tram 電車</span>上山，沿途風景極佳，是女兒們拍照的好機會。</div>
+  </div>
+</div>`},
+{time:'15:30',title:'蓋蒂中心 (The Getty Center)',desc:'建議預約 16:00 場次（比 15:30 更從容）。',tags:[{type:'tip',text:'建議改預約 16:00 場次'}],
+extra:`<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">
+  <div style="background:#f8f6f1;border-radius:10px;padding:12px 14px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:15px;color:#1c1916;margin-bottom:6px;">① 建築與景觀</div>
+    <div style="font-size:14px;color:#2a2520;line-height:1.75;">白色石灰華大理石建築，光線柔和，加州最具代表性的現代建築，整座山頭都是網美牆。</div>
+    <div style="margin-top:8px;display:flex;flex-direction:column;gap:5px;">
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">🚡 免費電車（Tram）</span>：搭電車上山約 10 分鐘，像乘坐未來的雲端列車，女兒們一定會拿手機拍縮時攝影。</div>
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">🏛 露天廣場（Museum Courtyard）</span>：整座建築的中心，有巨大遮陽傘和噴水池。</div>
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">🛣 405 公路觀景台</span>：俯瞰剛才困住你們的 405 號高速公路，密密麻麻的車流在腳下，這才是真正的「洛杉磯視角」。</div>
+    </div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:10px;padding:12px 14px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:15px;color:#1c1916;margin-bottom:6px;">② 戶外花園：Central Garden</div>
+    <div style="font-size:14px;color:#2a2520;line-height:1.7;">由藝術家 Robert Irwin 設計，是蓋蒂中心的靈魂。</div>
+    <div style="margin-top:8px;display:flex;flex-direction:column;gap:5px;">
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">💧 水景迷宮</span>：花園中心是圓形杜鵑花迷宮，漂浮在水池上。</div>
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">📸 拍照角度</span>：從上方步道往下拍花園全景，或走進花園拍看起來像巨型植物的鋼鐵架。</div>
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">🌵 仙人掌花園（South Promontory）</span>：最南端，種滿造型奇特的仙人掌，背景是洛杉磯地平線，風格簡約時髦。</div>
+    </div>
+  </div>
+  <div style="background:#f8f6f1;border-radius:10px;padding:12px 14px;border:1px solid #e8e3d8;">
+    <div style="font-weight:600;font-size:15px;color:#1c1916;margin-bottom:6px;">③ 必看藝術品</div>
+    <div style="margin-top:4px;display:flex;flex-direction:column;gap:5px;">
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">🌸 梵谷《鳶尾花》</span>：鎮館之寶，West Pavilion 204 展廳。</div>
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">🎨 印象派畫作</span>：同區有莫內（Monet）和雷諾瓦（Renoir）的作品。</div>
+      <div style="font-size:14px;color:#2a2520;line-height:1.7;"><span style="font-weight:600;">👑 法式裝飾藝術</span>：North Pavilion，18 世紀法式宮廷傢俱，喜歡凡爾賽宮風格的女兒們會愛。</div>
+    </div>
+  </div>
+  <div style="background:#fff8e8;border-radius:10px;padding:12px 14px;border:1px solid #e8d8a0;border-left:3px solid #9a6e00;">
+    <div style="font-weight:600;font-size:15px;color:#9a6e00;margin-bottom:6px;">④ 重頭戲：West Pavilion 夕陽 🌅</div>
+    <div style="font-size:14px;color:#2a2520;line-height:1.75;">蓋蒂中心位於高處，西邊完全沒有遮蔽物。當太陽落入太平洋時，整座白色大理石建築會被染成橘金色。</div>
+    <div style="margin-top:6px;font-size:14px;color:#2a2520;"><span style="font-weight:600;">📍 位置</span>：West Pavilion 二樓戶外露台，一邊吹海風一邊看落日。</div>
+  </div>
+</div>`,
+route:{path:'I-405 N → US-101 S → CA-134 E → I-210 E',time:'約 45–55 分鐘',warn:'注意 101 方向，勿走 101 N'},
+routeDetail:`<div style="margin-top:8px;padding:14px 16px;background:#eaf1f8;border-radius:10px;font-size:14px;color:#2a2520;line-height:1.85;border-left:3px solid #1e4d7b;">
+  <div style="font-weight:600;font-size:15px;margin-bottom:10px;color:#1e4d7b;">🗺️ Getty Center → Courtyard Pasadena（45–55 分鐘）</div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">① 離開 Getty，上 I-405 North</div>
+    <div>離開停車場下山到 405 匝道這段通常會小塞排隊，保持耐心順著排，不要急著切車道。</div>
+    <div style="margin-top:4px;">進入 <span style="font-weight:600;">I-405 North（往北，離開海邊方向）</span>。</div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">② I-405 North → US-101 South（7–9 英里，約 10–15 分鐘）</div>
+    <div>晚上車多是正常的，開了 10 分鐘還沒看到 101 指標請保持冷靜，它就在不遠處。</div>
+    <div style="margin-top:4px;">看到 <span style="font-weight:600;">"US-101 South / Los Angeles"</span> 指標後向右切換。</div>
+    <div style="margin-top:4px;color:#2d5a2d;font-weight:500;">✓ 雖然寫 South，但這段實際往「東」開，這是對的。</div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">③ US-101 → CA-134 East ← 全段大魔王</div>
+    <div>來到 101 與 134 的大分叉路口：<span style="font-weight:600;">左側 3 條車道往 134 East（Pasadena），右側 2 條往 101 South</span>。</div>
+    <div style="margin-top:4px;">請待在「<span style="font-weight:600;">左邊數來第 2 或第 3 條車道</span>」，跟著 <span style="font-weight:600;">CA-134 East / Pasadena</span> 指標走。</div>
+    <div style="margin-top:4px;color:#7a1f1f;font-weight:500;">⚠️ 最左邊第一條是 Carpool Lane，雖然 4 人可以開，但分叉路口建議待在一般車道左側，以免被黃實線困住切不出來。</div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">④ CA-134 → I-210 East</div>
+    <div>134 公路開到底會銜接 210 公路，務必看清楚指標 <span style="font-weight:600;">"I-210 East / Pasadena"</span>。</div>
+    <div style="margin-top:4px;color:#7a1f1f;font-weight:500;">✗ 不要走錯往 West 了。</div>
+  </div>
+
+  <div>
+    <div style="font-weight:600;color:#1c1916;margin-bottom:4px;">⑤ 下 Fair Oaks 出口 → 抵達飯店</div>
+    <div>看到 <span style="font-weight:600;">"Fair Oaks Ave"</span> 出口直接下來，下匝道後走平面道路，非常直且好走，直接導引抵達 Courtyard by Marriott Pasadena/Old Town。</div>
+    <div style="margin-top:4px;color:#2d5a2d;font-weight:500;">✓ 抵達後先在門口暫停卸行李，讓家人先進大廳，你再去停車。</div>
+  </div>
+</div>`},
 {time:'20:00',title:'入住 Courtyard Pasadena',desc:'步行 5 分鐘可至 Sage Vegan Bistro 或 Dog Haus。',tags:[{type:'hotel',text:'Courtyard Pasadena'}],route:null},
 ]},
 
