@@ -331,44 +331,24 @@ function rcp(){
 }
 
 
-const UNSPLASH_KEY = "xLLDvh-DxrSHQkaR1-LPrxo7dgwx6Uq7T1MDsGGpV4o";
-const SPOT_PHOTOS = {"抵達 LAX 機場": ["airport terminal arrival hall", "airplane window flight"], "Santa Monica": ["Santa Monica Pier ferris wheel", "Santa Monica beach California"], "蓋蒂中心 (The Getty Center)": ["Getty Center museum Los Angeles", "Getty Center garden"], "The Grove + Original Farmers Market": ["The Grove Los Angeles outdoor mall fountain", "farmers market outdoor stalls"], "羅德歐大道 (Rodeo Drive)": ["Rodeo Drive Beverly Hills", "Beverly Hills luxury street"], "格里斐斯天文台 (Griffith Observatory)": ["Griffith Observatory Los Angeles", "Hollywood Sign Los Angeles"], "Marshalls (Old Pasadena)": ["Pasadena California street night", "California street shopping"], "Target Anaheim 採買": ["supermarket shopping cart", "grocery store America"], "Anaheim Packing District 逛市集": ["food hall vintage brick market indoor dining", "indoor food market restaurant"], "入住 Disneyland Hotel": ["Disneyland Hotel Anaheim", "Disneyland castle night"], "開園搶攻": ["theme park roller coaster crowd", "amusement park fun"], "Citadel Outlets 購物": ["California outlet shopping outdoor sunny retail", "premium outlet mall shopping"], "星光大道快閃 (Hollywood)": ["Hollywood Walk of Fame stars", "TCL Chinese Theatre Hollywood"], "Whole Foods 補給": ["grocery store fresh produce vegetables colorful", "fresh fruit vegetables market"], "T.J.Maxx 逛街": ["clothing fashion store interior shopping bags", "fashion retail store clothes"], "入園！立刻搶 Super Nintendo World": ["Universal Studios Hollywood", "Harry Potter Wizarding World Universal"], "CityWalk 晚餐": ["Universal CityWalk Hollywood night", "neon lights entertainment district"], "入住 Tenaya Lodge": ["forest hotel cabin nature", "mountain lodge trees California"], "傍晚驚喜：Tunnel View": ["Tunnel View Yosemite El Capitan", "Yosemite Valley panorama sunset"], "Tunnel View + 停妥車輛": ["Yosemite national park valley", "mountain valley scenic overlook"], "漫遊優勝美地山谷": ["Yosemite Falls waterfall", "Half Dome Yosemite river reflection"], "El Capitan Meadow + Valley View": ["Yosemite granite cliff rock nature", "Yosemite national park scenery"], "唐人街午餐 + 探索": ["San Francisco Chinatown lanterns Grant Avenue", "chinatown red lanterns"], "北灘 (North Beach) + 九曲花街": ["Lombard Street San Francisco", "San Francisco winding street flowers"], "漁人碼頭 (Fisherman's Wharf)": ["San Francisco pier harbor boats seafood", "San Francisco wharf boats ocean"], "金門大橋 (Golden Gate Bridge)": ["Golden Gate Bridge San Francisco morning", "Crissy Field Golden Gate Bridge"], "Crissy Field + 藝術宮 (Palace of Fine Arts)": ["Palace of Fine Arts San Francisco dome", "Roman architecture rotunda"], "渡輪大廈 (Ferry Building) 週六農夫市集": ["Ferry Building San Francisco farmers market", "outdoor food market morning"], "叮噹車 (Cable Car) 體驗": ["San Francisco cable car hill street", "cable car city hill"]}
-const photoCache = {};
+const FIXED_PHOTOS = {"抵達 LAX 機場": ["https://images.unsplash.com/photo-1771970574223-24e53a0c5a24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1647363377737-8d0ad7c2f494?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Santa Monica": ["https://images.unsplash.com/photo-1512599821813-1acd97874244?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1668788420926-184c6d2fde85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "蓋蒂中心 (The Getty Center)": ["https://images.unsplash.com/photo-1689096641552-16c4942421df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1694303961745-0647e67ae1df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "The Grove + Original Farmers Market": ["https://images.unsplash.com/photo-1767668425345-eb5393212bce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "羅德歐大道 (Rodeo Drive)": ["https://images.unsplash.com/photo-1571960314654-a3f1eadf1192?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1600617548855-b9a862fb0b02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "格里斐斯天文台 (Griffith Observatory)": ["https://images.unsplash.com/photo-1690099667983-35293f30df8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1641534425566-9e141d1b3b17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Marshalls (Old Pasadena)": ["https://images.unsplash.com/photo-1708578120892-305749db8391?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1565464089519-da4089e07759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Target Anaheim 採買": ["https://images.unsplash.com/photo-1773324089455-a5b32a2e2875?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1727313641400-2d11c3be5979?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Anaheim Packing District 逛市集": ["https://images.unsplash.com/photo-1776007699209-5d68bbdfdfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1777983304850-2d39802bdf82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "入住 Disneyland Hotel": ["https://images.unsplash.com/photo-1644041043464-178fe7a062c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1730386912872-32447a5f31a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "開園搶攻": ["https://images.unsplash.com/photo-1777214798932-54740bd3409a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1638450096618-7774f1cdb5d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Citadel Outlets 購物": ["https://images.unsplash.com/photo-1621465558419-1deb2e51b530?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1652696236817-eb1931d8ca19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "星光大道快閃 (Hollywood)": ["https://images.unsplash.com/photo-1741628422833-a439b3ca130c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1777523743696-d5f1d2374458?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Whole Foods 補給": ["https://images.unsplash.com/photo-1661713093950-89ff279c6610?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1606836484371-483e90c5d19a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "T.J.Maxx 逛街": ["https://images.unsplash.com/photo-1766934587163-186d20bf3d40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1768733994404-08bb9d35a88b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "入園！立刻搶 Super Nintendo World": ["https://images.unsplash.com/photo-1618945373370-7bde4f8dd9c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1631731509926-667513cd7061?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "CityWalk 晚餐": ["https://images.unsplash.com/photo-1706147602246-e4a53359ac03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1765009434389-47de1b8f153f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "入住 Tenaya Lodge": ["https://images.unsplash.com/photo-1571177558702-903532738c89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1775023664015-2ec930caa002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "傍晚驚喜：Tunnel View": ["https://images.unsplash.com/photo-1684337282154-6c855a243ae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1513891309231-88f42264c859?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Tunnel View + 停妥車輛": ["https://images.unsplash.com/photo-1584522752657-c72a2f35352f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1763617829389-dd29ce9a3511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "漫遊優勝美地山谷": ["https://images.unsplash.com/photo-1634758898941-fab434fe5391?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1759610671420-2e97cdce80dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "El Capitan Meadow + Valley View": ["https://images.unsplash.com/photo-1761588728361-4b7563761b3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1644000454327-126c5d885f00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "唐人街午餐 + 探索": ["https://images.unsplash.com/photo-1766442780903-4319df77fec1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1629104299679-ce473044b556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "北灘 (North Beach) + 九曲花街": ["https://images.unsplash.com/photo-1746288863863-251f3bf11f5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1770174080315-4ca61399540b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "漁人碼頭 (Fisherman's Wharf)": ["https://images.unsplash.com/photo-1679560872179-65ad87a01c8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1715306849680-bf75cf25f3d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "金門大橋 (Golden Gate Bridge)": ["https://images.unsplash.com/photo-1513735067290-e2928f4908ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1575696267131-c40be6bca49c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "Crissy Field + 藝術宮 (Palace of Fine Arts)": ["https://images.unsplash.com/photo-1738353610853-440a7b4ddd01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1764504884462-41834a43278c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "渡輪大廈 (Ferry Building) 週六農夫市集": ["https://images.unsplash.com/photo-1511057630-054448f045a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1777777375373-367bc0355d21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"], "叮噹車 (Cable Car) 體驗": ["https://images.unsplash.com/photo-1564866928175-edcccecd6947?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", "https://images.unsplash.com/photo-1623166337902-2ab27ef30057?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"]};
 
-async function loadSpotPhotos() {
+function loadSpotPhotos() {
   const containers = document.querySelectorAll('.spot-photo-container');
-  for (const container of containers) {
+  containers.forEach(container => {
     const title = container.dataset.title;
-    const queries = SPOT_PHOTOS[title];
-    if (!queries || queries.length === 0) continue;
-    const imgs = [];
-    for (let i = 0; i < Math.min(queries.length, 2); i++) {
-      const q = queries[i];
-      if (photoCache[q]) { imgs.push(photoCache[q]); continue; }
-      try {
-        const res = await fetch(
-          'https://api.unsplash.com/search/photos?query=' + encodeURIComponent(q) + '&per_page=1&orientation=landscape&client_id=' + UNSPLASH_KEY
-        );
-        const data = await res.json();
-        if (data.results && data.results[0]) {
-          const url = data.results[0].urls.regular;
-          photoCache[q] = url;
-          imgs.push(url);
-        }
-      } catch(e) { console.log('Photo error:', e); }
-    }
-    if (imgs.length === 0) continue;
+    const urls = FIXED_PHOTOS[title];
+    if (!urls || urls.length === 0) return;
     container.style.display = 'flex';
     container.style.gap = '8px';
     container.style.marginBottom = '8px';
-    container.innerHTML = imgs.map(url =>
+    container.innerHTML = urls.map(url =>
       '<div style="flex:1;min-width:45%;border-radius:8px;overflow:hidden;aspect-ratio:16/9;">' +
-      '<img src="' + url + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">' +
+      '<img src="' + url + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.display=\'none\'">' +
       '</div>'
     ).join('');
-  }
+  });
 }
-setTimeout(loadSpotPhotos, 500);
 
 document.getElementById('navInner').innerHTML=[
   ...DAYS.map((d,i)=>`<div class="nav-tab${i===0?' active':''}" data-idx="${i}" onclick="st(${i})">Day ${d.id}<span class="nav-tab-sub">${d.date.split(' ')[0]}</span></div>`),
@@ -377,6 +357,7 @@ document.getElementById('navInner').innerHTML=[
 ].join('');
 
 document.getElementById('pages').innerHTML=DAYS.map((d,i)=>rdp(d,i)).join('')+rhp()+rcp();
+loadSpotPhotos();
 
 function st(idx){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -395,6 +376,7 @@ document.getElementById('navInner').innerHTML=[
   `<div class="nav-tab" data-idx="${DAYS.length+1}" onclick="st(${DAYS.length+1})">✅ 清單<span class="nav-tab-sub">出發前</span></div>`,
 ].join('');
 document.getElementById('pages').innerHTML=DAYS.map((d,i)=>rdp(d,i)).join('')+rhp()+rcp();
+loadSpotPhotos();
 </script>
 </body>
 </html>
