@@ -376,7 +376,83 @@ function rhp(){
   const tm={tip:'tag-tip',warn:'tag-warn',default:'tag-default',park:'tag-park',hotel:'tag-hotel',food:'tag-food'};
   const cr=[['Hotel Burbank','6/10 前','ok','可退款'],['Tenaya Lodge','6/15 前','ok','可退款'],['Oakdale Best Western','6/16 前','ok','可退款'],['Grand Hyatt SF','6/17 前','ok','可退款'],['Courtyard Pasadena','不可退','no','不可退款'],['Disneyland Hotel','不可退','no','不可退款']];
   const cards=sl=>sl.map(h=>`<div class="hotel-card"><div class="hotel-head"><div class="hotel-icon" style="background:${h.ib};color:${h.ic}">${h.icon}</div><div><div class="hotel-name">${h.name}</div><div class="hotel-dates">${h.dates}</div></div></div><div class="hotel-body">${h.addr?`<div class="hotel-addr">${h.addr}</div>`:''} ${h.rows.map(([l,v])=>`<div class="hotel-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}${h.tags.length?`<div class="hotel-tags">${h.tags.map(t=>`<span class="tag ${tm[t.c]||'tag-default'}">${t.t}</span>`).join('')}</div>`:''}<div class="hotel-conf">${h.conf}</div></div></div>`).join('');
-  return`<div class="page" data-idx="${DAYS.length}"><div class="container"><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">洛杉磯</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(0,3))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">優勝美地</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(3,5))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">舊金山</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(5))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">取消期限一覽</div><div class="sec-div-line"></div></div><div class="cancel-wrap"><table class="cancel-table"><thead><tr><th>飯店</th><th>取消期限</th><th>狀態</th></tr></thead><tbody>${cr.map(([n,d,c,s])=>`<tr><td>${n}</td><td class="${c}">${d}</td><td class="${c}">${s}</td></tr>`).join('')}</tbody></table></div><div style="margin:32px 0 18px;display:flex;align-items:center;gap:14px;"><div style="flex:1;height:1px;background:#e8e3d8"></div><div style="font-size:10px;letter-spacing:.14em;color:#6e685f;padding:5px 16px;border-radius:20px;border:1px solid #e8e3d8;background:#fff;white-space:nowrap">租車資訊</div><div style="flex:1;height:1px;background:#e8e3d8"></div></div>
+  return`<div class="page" data-idx="${DAYS.length}"><div class="container"><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">洛杉磯</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(0,3))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">優勝美地</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(3,5))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">舊金山</div><div class="sec-div-line"></div></div><div class="hotels-grid">${cards(HOTELS.slice(5))}</div><div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-label">取消期限一覽</div><div class="sec-div-line"></div></div><div class="cancel-wrap"><table class="cancel-table"><thead><tr><th>飯店</th><th>取消期限</th><th>狀態</th></tr></thead><tbody>${cr.map(([n,d,c,s])=>`<tr><td>${n}</td><td class="${c}">${d}</td><td class="${c}">${s}</td></tr>`).join('')}</tbody></table></div><div style="margin:32px 0 18px;display:flex;align-items:center;gap:14px;"><div style="flex:1;height:1px;background:#e8e3d8"></div><div style="font-size:10px;letter-spacing:.14em;color:#6e685f;padding:5px 16px;border-radius:20px;border:1px solid #e8e3d8;background:#fff;white-space:nowrap">機票資訊</div><div style="flex:1;height:1px;background:#e8e3d8"></div></div>
+<div style="display:flex;flex-direction:column;gap:12px;max-width:600px;">
+
+  <div style="background:#fff;border:1px solid #e8e3d8;border-radius:12px;overflow:hidden;">
+    <div style="display:flex;gap:12px;align-items:flex-start;padding:15px 16px 12px;border-bottom:1px solid #e8e3d8;">
+      <div style="width:40px;height:40px;border-radius:10px;background:#eaf1f8;color:#1e4d7b;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">✈️</div>
+      <div>
+        <div style="font-size:14px;font-weight:500;">長榮航空 Eva Air</div>
+        <div style="font-size:11px;color:#6e685f;margin-top:3px;">訂位代號：<span style="font-family:monospace;font-weight:600;color:#1c1916;">ARJWVC</span></div>
+      </div>
+    </div>
+    <div style="padding:12px 16px;">
+      <div style="font-size:12px;font-weight:500;color:#6e685f;margin-bottom:8px;letter-spacing:.05em;">旅客與機票號碼</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid #e8e3d8;gap:12px;"><span style="color:#6e685f;">CHIAO / LIWEN MS</span><span style="font-family:monospace;font-weight:500;">695 7485415601</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid #e8e3d8;gap:12px;"><span style="color:#6e685f;">CHIANG / YUSHAN MS</span><span style="font-family:monospace;font-weight:500;">695 7485415602</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid #e8e3d8;gap:12px;"><span style="color:#6e685f;">CHIANG / YUNCHING MS</span><span style="font-family:monospace;font-weight:500;">695 7485415603</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;font-size:13px;gap:12px;"><span style="color:#6e685f;">CHIANG / TSUNGHAN MR</span><span style="font-family:monospace;font-weight:500;">695 7485415604</span></div>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:#6e685f;background:#f8f6f1;padding:6px 10px;border-radius:8px;">🧳 免費託運行李：去回程皆 2 件，每件上限 23 公斤</div>
+    </div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e8e3d8;border-radius:12px;overflow:hidden;">
+    <div style="padding:13px 16px 10px;border-bottom:1px solid #e8e3d8;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:13px;font-weight:600;color:#1c1916;">✈ 去程</span>
+      <span style="font-size:12px;color:#6e685f;">台灣 → 洛杉磯</span>
+      <span style="margin-left:auto;font-size:11px;padding:2px 9px;background:#edf5ed;color:#2d5a2d;border-radius:10px;font-weight:500;">BR006 · 經濟艙 V</span>
+    </div>
+    <div style="padding:12px 16px;display:flex;flex-direction:column;gap:5px;">
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex:1;">
+          <div style="font-size:18px;font-weight:700;color:#1c1916;">10:10</div>
+          <div style="font-size:13px;font-weight:500;color:#1c1916;margin-top:2px;">桃園國際機場 (TPE)</div>
+          <div style="font-size:12px;color:#6e685f;">2026-06-11 (四) · 第二航廈</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:6px;gap:4px;">
+          <div style="font-size:11px;color:#6e685f;">12h 10m</div>
+          <div style="width:80px;height:1px;background:#e8e3d8;position:relative;"><span style="position:absolute;right:-6px;top:-5px;font-size:11px;">›</span></div>
+        </div>
+        <div style="flex:1;text-align:right;">
+          <div style="font-size:18px;font-weight:700;color:#1c1916;">07:20</div>
+          <div style="font-size:13px;font-weight:500;color:#1c1916;margin-top:2px;">洛杉磯機場 (LAX)</div>
+          <div style="font-size:12px;color:#6e685f;">2026-06-11 (四) · 航廈 B</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e8e3d8;border-radius:12px;overflow:hidden;">
+    <div style="padding:13px 16px 10px;border-bottom:1px solid #e8e3d8;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:13px;font-weight:600;color:#1c1916;">✈ 回程</span>
+      <span style="font-size:12px;color:#6e685f;">舊金山 → 台灣</span>
+      <span style="margin-left:auto;font-size:11px;padding:2px 9px;background:#edf5ed;color:#2d5a2d;border-radius:10px;font-weight:500;">BR027 · 經濟艙 W</span>
+    </div>
+    <div style="padding:12px 16px;display:flex;flex-direction:column;gap:5px;">
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex:1;">
+          <div style="font-size:18px;font-weight:700;color:#1c1916;">00:50</div>
+          <div style="font-size:13px;font-weight:500;color:#1c1916;margin-top:2px;">舊金山機場 (SFO)</div>
+          <div style="font-size:12px;color:#6e685f;">2026-06-21 (日) · 國際航廈</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:6px;gap:4px;">
+          <div style="font-size:11px;color:#6e685f;">13h 15m</div>
+          <div style="width:80px;height:1px;background:#e8e3d8;position:relative;"><span style="position:absolute;right:-6px;top:-5px;font-size:11px;">›</span></div>
+        </div>
+        <div style="flex:1;text-align:right;">
+          <div style="font-size:18px;font-weight:700;color:#1c1916;">05:05</div>
+          <div style="font-size:13px;font-weight:500;color:#1c1916;margin-top:2px;">桃園國際機場 (TPE)</div>
+          <div style="font-size:12px;color:#6e685f;">2026-06-22 (一) · 第二航廈</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div style="margin:32px 0 18px;display:flex;align-items:center;gap:14px;"><div style="flex:1;height:1px;background:#e8e3d8"></div><div style="font-size:10px;letter-spacing:.14em;color:#6e685f;padding:5px 16px;border-radius:20px;border:1px solid #e8e3d8;background:#fff;white-space:nowrap">租車資訊</div><div style="flex:1;height:1px;background:#e8e3d8"></div></div>
 <div style="background:#fff;border:1px solid #e8e3d8;border-radius:12px;overflow:hidden;max-width:600px;">
   <div style="display:flex;gap:12px;align-items:flex-start;padding:15px 16px 12px;border-bottom:1px solid #e8e3d8;">
     <div style="width:40px;height:40px;border-radius:10px;background:#eaf1f8;color:#1e4d7b;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🚗</div>
